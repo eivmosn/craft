@@ -44,6 +44,16 @@ body,
     right: 0 !important;
 }
 
-.ghost-component {
+.ghost-node {
     opacity: 1 !important;
+}
+
+.ghost-indicator {
+    border: none !important;
+    height: 55px !important;
+    border-left: 2px solid #2080F0 !important;
+}
+
+.ghost-indicator>* {
+    display: none !important;
 }
