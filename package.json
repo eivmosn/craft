@@ -26,6 +26,7 @@
   "scripts": {
     "taze": "npx taze -r -w",
     "preinstall": "npx only-allow pnpm",
-    "dev": "pnpm --filter example run dev"
+    "dev": "pnpm --filter example run dev",
+    "build": "pnpm --filter example run build"
   }
 }

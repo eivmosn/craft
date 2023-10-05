@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "vite --host",
     "preview": "vite preview",
-    "build": "vue-tsc && vite build"
+    "build": "vite build"
   }
 }
