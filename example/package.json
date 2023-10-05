@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "dev": "vite --host",
+    "preview": "vite preview",
+    "build": "vue-tsc && vite build"
   }
 }

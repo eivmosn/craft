@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   }
 }

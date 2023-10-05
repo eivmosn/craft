@@ -1,0 +1,12 @@
+html.dark {
+    --x-shining-v1: #8f41e9;
+    --x-shining-v2: #578aef;
+    --x-background: rgb(13, 17, 23);
+    --x-border: rgb(33, 38, 45);
+    --x-canvas: #010409;
+    --x-collapse: rgba(177, 186, 196, 0.12);
+    --x-color: #E6EDF3;
+    --x-navicon: var(--x-color);
+    --x-modal: rgb(44, 44, 50);
+    --x-modal-border: rgba(255, 255, 255, 0.09);
+}

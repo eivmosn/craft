@@ -1,10 +1,14 @@
 import { defineComponent } from "vue"
+import { Designer, ThemeProvider } from "@codepan/designer";
 
 export default defineComponent({
-    setup() {
+  name: 'App',
+  setup() {
 
-    },
-    render() {
-        return <div>App</div>
-    },
+  },
+  render() {
+    return <ThemeProvider>
+      <Designer />
+    </ThemeProvider>
+  },
 })

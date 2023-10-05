@@ -1,0 +1,36 @@
+@import './light.css';
+@import './dark.css';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.n-config-provider {
+    height: 100%;
+}
+
+.collapse-item .n-collapse-item__content-inner {
+    padding-top: 0 !important;
+}
+
+.collapse-item .n-collapse-item__header-main {
+    padding: 5px 8px;
+    background-color: var(--x-collapse);
+    color: var(--x-color) !important;
+}
+
+.collapse-item .n-collapse-item__header--active .n-collapse-item__header-main {
+    border-bottom: 1px solid var(--form-border);
+}
