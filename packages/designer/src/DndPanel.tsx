@@ -30,7 +30,6 @@ export default defineComponent({
                                 forceFallback={true}
                                 fallbackOnBody={true}
                                 fallbackTolerance={5}
-                                scrollSensitivity={150}
                                 fallbackClass='ghost-node'
                                 itemKey={`${group}-${index}`}
                                 class='grid grid-cols-[repeat(auto-fill,90px)] gap-6px items-center justify-center'
