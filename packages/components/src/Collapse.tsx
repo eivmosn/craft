@@ -5,6 +5,7 @@ export default defineComponent({
     inheritAttrs: false,
     props: {
         title: String,
+        border: Boolean,
         name: [String, Number],
     },
     render() {
@@ -19,7 +20,7 @@ export default defineComponent({
                     </div>
                 }}
                 name={this.name}
-                class='collapse-item'
+                class={['collapse-item', this.border && 'border-top']}
                 displayDirective="show"
             >
                 <div class='bg-[--form-content] p-4px'>
