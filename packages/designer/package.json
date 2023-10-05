@@ -3,5 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "keywords": [],
-    "author": ""
+    "author": "",
+    "main": "index.ts"
 }

@@ -20,6 +20,8 @@ declare module 'vuedraggable' {
         fallbackOnBody?: boolean
         fallbackTolerance?: number
         fallbackClass?: string
+        clone?: (node: any) => void
+        onAdd?: (node: any) => void
     }>
 
     export default draggable;

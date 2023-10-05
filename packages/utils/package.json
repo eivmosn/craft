@@ -1,0 +1,12 @@
+{
+    "name": "@codepan/utils",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "dependencies": {
+        "@types/lodash-es": "^4.17.9",
+        "lodash-es": "^4.17.21",
+        "nanoid": "^5.0.1"
+    }
+}

@@ -1,5 +1,5 @@
 import { NButton, NButtonGroup, NFormItem, NInput } from "naive-ui"
-import { defineComponent } from "vue"
+import { defineComponent, renderSlot } from "vue"
 
 const AddonsMap = [
     {
@@ -35,15 +35,7 @@ export default defineComponent({
     name: 'Controller',
     render() {
         return <div class='b select-none min-h-50px b-blue relative bg-[var(--x-background)] fc p-5px'>
-            <NFormItem
-                label="Input"
-                labelWidth={80}
-                showFeedback={false}
-                labelPlacement="left"
-                class='relative w-full before:(content-empty absolute inset-0 z-10)'
-            >
-                <NInput placeholder='Input...' />
-            </NFormItem>
+            {renderSlot(this.$slots, 'default')}
             <Addons />
         </div>
     },

@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import Draggable from "vuedraggable";
 import { Collapse } from '../../components'
 import components, { enUs } from "./config";
+import { onDragClone } from "./event";
 
 export default defineComponent({
     name: 'DndPanel',
@@ -25,6 +26,7 @@ export default defineComponent({
                                 }}
                                 sort={false}
                                 list={component}
+                                clone={onDragClone}
                                 forceFallback={true}
                                 fallbackOnBody={true}
                                 fallbackTolerance={5}
