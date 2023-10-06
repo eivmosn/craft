@@ -8,7 +8,7 @@ export default defineComponent({
     },
     render() {
         return <TitlePanel title='JSON Schema'>
-
+            
         </TitlePanel>
     },
 })
