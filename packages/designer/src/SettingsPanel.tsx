@@ -14,7 +14,7 @@ export default defineComponent({
     }
   },
   render() {
-    return <TitlePanel title='Property Settings'>
+    return <TitlePanel title='Property Settings' class='min-w-300px'>
       <div class='fc p-4px relative before:(content-empty absolute left-0 right-0 h-1px bg-[var(--x-border)] top-48px)'>
         <NTabs paneStyle={{
           paddingTop: '6px',
