@@ -1,4 +1,5 @@
 import { defineComponent, inject } from 'vue'
+import TitlePanel from "./container/TitlePanel";
 
 export default defineComponent({
   name: 'DndPanel',
@@ -9,10 +10,8 @@ export default defineComponent({
     }
   },
   render() {
-    return <div class='w-315px bg-[var(--x-background)]'>
-      {
-        JSON.stringify(this.schema)
-      }
-    </div>
+    return <TitlePanel title='Property Settings'>
+      123
+    </TitlePanel>
   },
 })

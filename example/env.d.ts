@@ -14,6 +14,7 @@ declare module 'vuedraggable' {
         handle?: string
         forceFallback?: boolean
         ghostClass?: string
+        swapThreshold?: number
         fallbackClass?: string
         scrollSensitivity?: number
         forceFallback?: boolean
@@ -22,6 +23,7 @@ declare module 'vuedraggable' {
         fallbackClass?: string
         clone?: (node: any) => void
         onAdd?: (node: any) => void
+        onStart?: (node: any) => void
     }>
 
     export default draggable;

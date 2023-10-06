@@ -34,7 +34,7 @@ export const Addons = defineComponent({
 export default defineComponent({
     name: 'Controller',
     render() {
-        return <div class='b select-none min-h-50px b-blue relative bg-[var(--x-background)] fc p-5px'>
+        return <div class='b select-none min-h-55px b-blue relative bg-[var(--x-background)] fc p-5px'>
             {renderSlot(this.$slots, 'default')}
             <Addons />
         </div>

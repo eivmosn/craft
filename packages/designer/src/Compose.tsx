@@ -1,6 +1,6 @@
 import { defineComponent, provide } from "vue"
 import Canvas from "./Canvas";
-import Toolbar from "./Toolbar";
+import Navbar from "./Navbar";
 import DndPanel from "./DndPanel";
 import SettingsPanel from "./SettingsPanel";
 import { Preference } from '../../components'
@@ -13,7 +13,7 @@ export default defineComponent({
   },
   render() {
     return <div class='h-full flex'>
-      <Toolbar />
+      <Navbar />
       <DndPanel />
       <Canvas />
       <SettingsPanel />
