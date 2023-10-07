@@ -10,7 +10,7 @@ export default defineComponent({
     name: 'DndPanel',
     inheritAttrs: false,
     render() {
-        return <TitlePanel title='Components' class='b-left b-[var(--x-border)] min-w-199px'>
+        return <TitlePanel title='Components' class='b-left b-[var(--x-border)] min-w-199px w-300px'>
             <div class='h-[calc(100%-48px)]'>
                 <NScrollbar class='fit-edge'>
                     {

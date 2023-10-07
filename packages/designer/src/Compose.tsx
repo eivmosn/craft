@@ -5,6 +5,7 @@ import DndPanel from "./DndPanel";
 import SettingsPanel from "./SettingsPanel";
 import { Preference } from '../../components'
 import { useDesigner } from "./event";
+import Schema from "./Schema";
 
 export default defineComponent({
   setup() {
@@ -14,7 +15,8 @@ export default defineComponent({
   render() {
     return <div class='h-full flex'>
       <Navbar />
-      <DndPanel />
+      <Schema />
+      {/* <DndPanel /> */}
       <Canvas />
       <SettingsPanel />
       <Preference />

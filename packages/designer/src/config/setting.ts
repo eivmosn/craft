@@ -5,21 +5,37 @@ export default {
             name: 'props',
             label: 'Properties',
             children: [
-
+                {
+                    type: 'input',
+                    field: 'name',
+                    label: 'Name',
+                }
             ]
         },
         {
-            name: 'styles',
-            label: 'Styles',
+            name: 'form',
+            label: 'Form',
             children: [
-                
-            ]
-        },
-        {
-            name: 'events',
-            label: 'Events',
-            children: [
-                
+                {
+                    type: 'input',
+                    field: 'size',
+                    label: 'Size',
+                },
+                {
+                    type: 'input',
+                    field: 'labelWidth',
+                    label: 'LabelWidth',
+                },
+                {
+                    type: 'input',
+                    field: 'labelAlign',
+                    label: 'LabelAlign',
+                },
+                {
+                    type: 'input',
+                    field: 'labelPlacement',
+                    label: 'LabelPlacement',
+                },
             ]
         }
     ]
