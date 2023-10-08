@@ -4,5 +4,5 @@
     "description": "",
     "keywords": [],
     "author": "",
-    "main": "index.ts"
+    "main": "src/index.ts"
 }

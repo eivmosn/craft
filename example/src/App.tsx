@@ -1,5 +1,5 @@
 import { defineComponent } from "vue"
-import { Designer, ThemeProvider } from "@codepan/designer";
+import { Designer } from "@codepan/designer";
 
 export default defineComponent({
   name: 'App',
@@ -7,8 +7,6 @@ export default defineComponent({
 
   },
   render() {
-    return <ThemeProvider>
-      <Designer />
-    </ThemeProvider>
+    return <Designer/>
   },
 })
