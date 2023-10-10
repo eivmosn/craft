@@ -9,6 +9,8 @@
   "scripts": {
     "up": "npx taze -w",
     "lint": "eslint .",
+    "dev": "vite",
+    "build": "vite build",
     "lint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks"
@@ -20,6 +22,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "lint-staged": "^14.0.1",
     "simple-git-hooks": "^2.9.0",
+    "unocss": "^0.56.5",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -31,7 +34,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "commit-msg": "node script/commit-lint.js"
+    "commit-msg": "node scripts/commit-lint.js"
   },
   "lint-staged": {
     "*": "eslint --fix"
