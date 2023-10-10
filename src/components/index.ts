@@ -1,5 +1,5 @@
-import BaseScroll from './commons/BaseScroll'
-import ConfigProvider from './commons/ConfigProvider'
+import BaseScroll from './others/BaseScroll'
+import ConfigProvider from './others/ConfigProvider'
 
 export {
   BaseScroll,
