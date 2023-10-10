@@ -1,10 +1,11 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
+import ConfigProvider from '../components/ConfigProvider'
 
 export default defineComponent({
   setup() {
 
   },
   render() {
-    return <div>App</div>
+    return <ConfigProvider>App</ConfigProvider>
   },
 })
