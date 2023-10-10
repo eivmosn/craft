@@ -16,3 +16,5 @@ export const enum Position {
   CENTER = 'center',
   BOTTOM = 'bottom',
 }
+
+export const SCROLLBAR_RAIL = '.n-scrollbar-rail'

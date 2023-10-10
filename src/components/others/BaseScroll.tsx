@@ -1,6 +1,7 @@
 import { NScrollbar } from 'naive-ui'
 import type { PropType } from 'vue'
 import { defineComponent, onMounted, ref, renderSlot } from 'vue'
+import { SCROLLBAR_RAIL } from 'core/enums'
 
 export default defineComponent({
   name: 'BaseScroll',
@@ -20,7 +21,7 @@ export default defineComponent({
     const fitToEdge = () => {
       const scrollbar = refScroll.value.$el
       const nextElementSibling = scrollbar.nextElementSibling
-      const [rail] = nextElementSibling.querySelectorAll('.n-scrollbar-rail')
+      const [rail] = nextElementSibling.querySelectorAll(SCROLLBAR_RAIL)
       if (rail && props.fitEdge)
         rail.style.right = '0px'
     }
