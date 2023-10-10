@@ -10,6 +10,7 @@ const commitRE
 if (!commitRE.test(msg)) {
   console.log()
   console.error('error commit msg!!')
+  console.log()
   // eslint-disable-next-line node/prefer-global/process
   process.exit(1)
 }
