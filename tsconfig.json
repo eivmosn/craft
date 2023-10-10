@@ -4,6 +4,10 @@
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "paths": {
+      "core/*": ["src/core/*"],
+      "components/*": ["src/components/*"]
+    },
     "resolveJsonModule": true,
     "noEmit": true,
     "esModuleInterop": true,

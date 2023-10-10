@@ -9,4 +9,10 @@ export default defineConfig({
     JSX(),
     UnoCSS(),
   ],
+  resolve: {
+    alias: {
+      core: '/src/core',
+      components: '/src/components',
+    },
+  },
 })
