@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import Draggable from 'vuedraggable'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -7,6 +8,8 @@ export default defineComponent({
 
   },
   render() {
-    return <div>Card</div>
+    return (<Draggable list={[]}>
+
+    </Draggable>)
   },
 })
