@@ -18,3 +18,5 @@ export const enum Position {
 }
 
 export const SCROLLBAR_RAIL = '.n-scrollbar-rail'
+
+export const DRAGGABLE_GROUP_NAME = 'draggable-group'

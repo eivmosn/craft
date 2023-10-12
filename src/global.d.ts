@@ -39,11 +39,19 @@ declare namespace Simple {
 }
 declare module 'vuedraggable' {
   const draggable: import('vue').DefineComponent<{
+    list: Simple.EmptyArray
+    sort?: boolean
+    itemKey: string
     scrollSensitivity?: number
     forceFallback?: boolean
     fallbackOnBody?: boolean
     fallbackTolerance?: number
     fallbackClass?: string
+    group?: {
+      name: string
+      pull: string
+      put: boolean
+    }
   }>
   export default draggable
 }
