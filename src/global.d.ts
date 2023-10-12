@@ -40,7 +40,20 @@ declare namespace Simple {
 
 declare module 'vuedraggable' {
   const draggable: import('vue').DefineComponent<{
-    list: Simple.Materials
+    scrollSensitivity?: number
+    forceFallback?: boolean
+    fallbackOnBody?: boolean
+    fallbackTolerance?: number
+    fallbackClass?: string
   }>
   export default draggable
+}
+
+declare namespace Draggable {
+  interface Slots {
+    item: (node: Node) => JSX.Element
+  }
+  interface Node {
+    element: Simple.Component
+  }
 }

@@ -8,8 +8,9 @@ export default defineComponent({
 
   },
   render() {
-    return (<Draggable list={[]}>
-
-    </Draggable>)
+    const slots: Draggable.Slots = {
+      item: ({ element }) => <div>{element}</div>,
+    }
+    return (<Draggable v-slots={slots} />)
   },
 })
