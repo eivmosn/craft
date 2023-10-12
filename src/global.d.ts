@@ -37,7 +37,6 @@ declare namespace Simple {
   }
 
 }
-
 declare module 'vuedraggable' {
   const draggable: import('vue').DefineComponent<{
     scrollSensitivity?: number
@@ -48,12 +47,16 @@ declare module 'vuedraggable' {
   }>
   export default draggable
 }
-
 declare namespace Draggable {
-  interface Slots {
+  interface Slot {
     item: (node: Node) => JSX.Element
   }
   interface Node {
     element: Simple.Component
+  }
+}
+declare namespace Form {
+  interface Slot {
+    [key: string]: (widget: Simple.Component) => JSX.Element | string | number | null
   }
 }
