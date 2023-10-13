@@ -5,6 +5,7 @@ import DndPanel from './others/DndPanel'
 import SettingsPanel from './others/SettingsPanel'
 import Workspace from './others/Workspace'
 import Toolbar from './others/Toolbar'
+import Collapse from './containers/Collapse'
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   ConfigProvider,
   SettingsPanel,
   Toolbar,
+  Collapse,
 }
