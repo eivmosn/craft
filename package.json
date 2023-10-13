@@ -29,11 +29,11 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.8.3",
+    "@types/node": "^20.8.5",
     "eslint": "^8.51.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.11",
-    "vue-tsc": "^1.8.18"
+    "vue-tsc": "^1.8.19"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
