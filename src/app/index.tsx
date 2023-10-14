@@ -1,15 +1,13 @@
 import { defineComponent } from 'vue'
-import {
-  ConfigProvider,
-} from 'components/index'
+import { FormCook, ThemeProvider } from '@/components'
 
 export default defineComponent({
   setup() {
 
   },
   render() {
-    return (<ConfigProvider>
-      123
-    </ConfigProvider>)
+    return (<ThemeProvider>
+      <FormCook />
+    </ThemeProvider>)
   },
 })

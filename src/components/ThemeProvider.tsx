@@ -1,6 +1,6 @@
 import { defineComponent, renderSlot } from 'vue'
 import { NConfigProvider } from 'naive-ui'
-import { themeOverrides, useDarkMode } from 'core/theme'
+import { themeOverrides, useDarkMode } from '@/core'
 
 export default defineComponent({
   name: 'ConfigProvider',

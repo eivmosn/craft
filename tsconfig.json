@@ -5,8 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "paths": {
-      "core/*": ["src/core/*"],
-      "components/*": ["src/components/*"]
+      "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "noEmit": true,
