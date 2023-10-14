@@ -1,5 +1,7 @@
 import { defineComponent } from 'vue'
-import { ConfigProvider, DndPanel, Navbar, SettingsPanel, Toolbar, Workspace } from 'components/index'
+import {
+  ConfigProvider,
+} from 'components/index'
 
 export default defineComponent({
   setup() {
@@ -7,15 +9,7 @@ export default defineComponent({
   },
   render() {
     return (<ConfigProvider>
-      <div class="h-full flex">
-        <Navbar />
-        <DndPanel />
-        <Workspace v-slots={{
-          toolbar: () => <Toolbar />,
-        }}
-        />
-        <SettingsPanel />
-      </div>
+      123
     </ConfigProvider>)
   },
 })
