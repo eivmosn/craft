@@ -1,4 +1,4 @@
-import { defineComponent, inject, provide, renderSlot } from 'vue'
+import { defineComponent, provide, renderSlot } from 'vue'
 import { FormCook, useFormCook } from '@/core'
 
 export default defineComponent({

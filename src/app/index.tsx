@@ -1,13 +1,14 @@
 import { defineComponent } from 'vue'
-import { FormCook, ThemeProvider } from '@/components'
+import { CodeEditor, FormCook, ThemeProvider } from '@/components'
 
 export default defineComponent({
   setup() {
 
   },
   render() {
-    return (<ThemeProvider>
-      <FormCook />
+    return (<ThemeProvider class="p-10">
+      {/* <FormCook /> */}
+      <CodeEditor />
     </ThemeProvider>)
   },
 })
