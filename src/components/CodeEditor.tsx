@@ -4,6 +4,7 @@ import { EditorView, keymap } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
 import { defaultKeymap } from '@codemirror/commands'
 import { NButton } from 'naive-ui'
+import { keywordsPlugin } from '@/core/plugins'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -16,6 +17,9 @@ export default defineComponent({
     const theme = EditorView.theme({
       '& .cm-matchingBracket': {
         color: 'red',
+      },
+      '.keyword-bold': {
+        color: 'blue',
       },
     })
 
@@ -31,10 +35,13 @@ export default defineComponent({
             console.log(value)
           }
         }),
+        keywordsPlugin(['GET_NAME']),
       ],
     })
 
     onMounted(() => {
+      console.log(domRef.value)
+
       editorRef.value = new EditorView({
         state: codeState,
         parent: domRef.value,
@@ -53,8 +60,6 @@ export default defineComponent({
           anchor: from + cursorIndex,
         },
       })
-
-    //   editorRef.value.
     }
 
     return {
@@ -66,7 +71,7 @@ export default defineComponent({
   render() {
     return (<div>
       <NButton onClick={this.onInsert}>插入</NButton>
-      <div ref="domRef "></div>
+      <div ref="domRef" />
     </div>)
   },
 })
