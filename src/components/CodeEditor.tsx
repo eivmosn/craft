@@ -4,7 +4,7 @@ import { EditorView, keymap } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
 import { defaultKeymap } from '@codemirror/commands'
 import { NButton } from 'naive-ui'
-import { keywordsPlugin } from '@/core/plugins'
+import { keywordsPlugin, placeholdersPlugin } from '@/core/plugins'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -36,12 +36,17 @@ export default defineComponent({
           }
         }),
         keywordsPlugin(['GET_NAME']),
+        placeholdersPlugin({
+          f: {
+            textColor: '#0958d9',
+            backgroudColor: '#e6f4ff',
+            borderColor: '#91caff',
+          },
+        }),
       ],
     })
 
     onMounted(() => {
-      console.log(domRef.value)
-
       editorRef.value = new EditorView({
         state: codeState,
         parent: domRef.value,
@@ -49,15 +54,33 @@ export default defineComponent({
     })
 
     const onInsert = () => {
-      const functionName = 'GET_NAME()'
-      const cursorIndex = functionName.length - 1
-      editorRef.value.focus()
-      const { from } = editorRef.value.state.selection.ranges[0]
-      editorRef.value.dispatch(editorRef.value.state.replaceSelection(functionName))
+      // const functionName = 'GET_NAME()'
+      // const cursorIndex = functionName.length - 1
+      // editorRef.value.focus()
+      // const { from } = editorRef.value.state.selection.ranges[0]
+      // editorRef.value.dispatch(editorRef.value.state.replaceSelection(functionName))
 
+      // editorRef.value.dispatch({
+      //   selection: {
+      //     anchor: from + cursorIndex,
+      //   },
+      // })
+      // editorRef.value
+      // editorRef.value.dispatch({
+      //   changes: {
+      //     from: 0,
+      //     to: editorRef.value.state.doc.length,
+      //     insert: '[[f.name:age.sex]]',
+      //   },
+      // })
+
+      editorRef.value.focus()
+      // 获取光标开始位置
+      const { from } = editorRef.value.state.selection.ranges[0]
+      editorRef.value.dispatch(editorRef.value.state.replaceSelection('[[f.name:age.sex]]'))
       editorRef.value.dispatch({
         selection: {
-          anchor: from + cursorIndex,
+          anchor: from + 4,
         },
       })
     }
