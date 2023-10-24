@@ -5,7 +5,12 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "paths": {
-      "@/*": ["src/*"]
+      "src": [
+        "src/*"
+      ],
+      "i18n": [
+        "i18n/index"
+      ]
     },
     "resolveJsonModule": true,
     "noEmit": true,
