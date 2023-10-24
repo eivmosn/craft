@@ -1,10 +1,10 @@
 html.dark {
-    --x-color: rgb(255, 255, 255);
-    --x-shining-v1: #8f41e9;
-    --x-shining-v2: #578aef;
-    --x-border: rgba(255, 255, 255, 0.09);
-    --x-background: rgb(16, 16, 20);
-    --x-background-deep: rgb(16, 16, 20);
-    --x-background-light: rgb(24, 24, 28);
-    --x-text-color: #f8fafc;
+    --fc-color: rgb(255, 255, 255);
+    --fc-shining-v1: #8f41e9;
+    --fc-shining-v2: #578aef;
+    --fc-border: rgba(255, 255, 255, 0.09);
+    --fc-background: rgb(16, 16, 20);
+    --fc-background-deep: rgb(16, 16, 20);
+    --fc-background-light: rgb(24, 24, 28);
+    --fc-text-color: #f8fafc;
 }

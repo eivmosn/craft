@@ -7,7 +7,7 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "up": "npx taze -w",
+    "up": "npx taze major",
     "lint": "eslint .",
     "dev": "vite",
     "build": "vite build",
@@ -29,7 +29,7 @@
     "lint-staged": "^14.0.1",
     "naive-ui": "^2.35.0",
     "simple-git-hooks": "^2.9.0",
-    "unocss": "^0.56.5",
+    "unocss": "^0.57.1",
     "vue": "^3.3.6",
     "vuedraggable": "^4.1.0"
   },

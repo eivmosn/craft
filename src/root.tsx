@@ -10,7 +10,7 @@ import {
   useNotification,
 } from 'naive-ui'
 import { defineComponent } from 'vue'
-import FormCook from './app'
+import FormCook from './app/components/FormCook'
 import { useDarkMode } from './core/theme'
 
 const GlobalInject = defineComponent({

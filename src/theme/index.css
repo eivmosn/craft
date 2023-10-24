@@ -16,27 +16,27 @@ body,
     height: 100%;
     overflow: hidden;
     scroll-behavior: smooth;
-    color: var(--x-text-color);
+    color: var(--fc-text-color);
 }
 
 .n-config-provider {
     height: 100%;
 }
 
-.x-collapse .n-collapse-item__content-inner {
+.fc-collapse .n-collapse-item__content-inner {
     padding-top: 0 !important;
 }
 
-.x-collapse .n-collapse-item__header-main {
+.fc-collapse .n-collapse-item__header-main {
     padding: 5px 8px;
-    color: var(--x-color) !important;
-    background-color: var(--x-collapse);
+    color: var(--fc-color) !important;
+    background-color: var(--fc-background-deep);
 }
 
-.x-collapse .n-collapse-item__header--active .n-collapse-item__header-main {
-    border-bottom: 1px solid var(--x-border);
+.fc-collapse .n-collapse-item__header--active .n-collapse-item__header-main {
+    border-bottom: 1px solid var(--fc-border);
 }
 
-.x-collapse.border-top {
-    border-top: 1px solid var(--x-border) !important;
+.fc-collapse.border-top {
+    border-top: 1px solid var(--fc-border) !important;
 }

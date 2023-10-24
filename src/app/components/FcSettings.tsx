@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { Paneview } from './FcView'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -7,6 +8,10 @@ export default defineComponent({
 
   },
   render() {
-    return <div class="min-w-300px w-300px b-left"></div>
+    return (<div class="min-w-300px w-300px b-left">
+      <Paneview title="属性配置">
+
+      </Paneview>
+    </div>)
   },
 })
