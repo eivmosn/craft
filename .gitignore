@@ -23,3 +23,7 @@ pnpm-lock.yaml
 *.njsproj
 *.sln
 *.sw?
+
+# Auto generated files
+pnpm-lock.yaml
+

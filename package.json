@@ -34,15 +34,15 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.8",
     "eslint": "^8.52.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
-    "vue-tsc": "^1.8.19"
+    "vue-tsc": "^1.8.20"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "commit-msg": "node scripts/commit-lint.js"
+    "commit-msg": "node scripts/commit-lint.mjs"
   },
   "lint-staged": {
     "*": "eslint --fix"
