@@ -8,8 +8,8 @@ export default defineComponent({
 
   },
   render() {
-    return (<div class="h-[calc(100%-48px)] p-4px">
-      <FcScrollview class="b">
+    return (<div class="h-[calc(100%-48px)] bg-[var(--x-background-deep)] p-4px">
+      <FcScrollview class="b bg-[var(--x-background-light)]">
 
       </FcScrollview>
     </div>)

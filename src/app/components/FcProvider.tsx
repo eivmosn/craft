@@ -7,7 +7,7 @@ export default defineComponent({
 
   },
   render() {
-    return (<div class="fc-wrapper h-full flex bg-[var(--x-background)]">
+    return (<div class="fc-wrapper h-full flex bg-[var(--x-background-light)]">
       {this.$slots.default?.()}
     </div>)
   },
