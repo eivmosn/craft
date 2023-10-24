@@ -1,6 +1,6 @@
-import { useDark, useToggle } from '@vueuse/core'
 import { type GlobalThemeOverrides, darkTheme, lightTheme } from 'naive-ui'
 import { computed } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 import { Color } from './enums'
 
 export function useDarkMode() {
