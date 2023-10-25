@@ -4,13 +4,16 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   inheritAttrs: false,
   name: 'Collapse',
-  setup() {
-
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
   },
   render() {
-    return (<NCollapse defaultExpandedNames={['comp']}>
-      <NCollapseItem class="fc-collapse" title="组件" name="comp">
-        <div class="fc-collapse-item grid grid-cols-[repeat(3,33.33%)] gap-1px b-bottom bg-[var(--fc-border)]">
+    return (<NCollapse defaultExpandedNames={[this.title]}>
+      <NCollapseItem class="fc-collapse" title={this.title} name={this.title}>
+        <div class="fc-collapse-item grid grid-cols-3 gap-4px b-bottom p-4px">
           {this.$slots.default?.()}
         </div>
       </NCollapseItem>
