@@ -1,4 +1,4 @@
-import { NInput, NScrollbar } from 'naive-ui'
+import { NScrollbar } from 'naive-ui'
 import { SCROLLBAR_RAIL } from 'src/core/enums'
 import type { PropType } from 'vue'
 import { defineComponent, onMounted, ref } from 'vue'
