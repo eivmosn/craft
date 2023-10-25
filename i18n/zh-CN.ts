@@ -27,4 +27,5 @@ export default {
   widgets: '组件',
   component: '组件',
   settings: '属性配置',
+  html: 'HTML',
 }

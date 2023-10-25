@@ -10,7 +10,12 @@ export default defineComponent({
   },
   render() {
     return (<div class="min-w-300px w-300px b-left">
-      <Paneview title={i18n.en.settings}>
+      <Paneview v-slots={{
+        title: () => (<div class="w-full px-10px">
+          {i18n.en.settings}
+        </div>),
+      }}
+      >
 
       </Paneview>
     </div>)

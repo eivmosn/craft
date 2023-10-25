@@ -13,7 +13,7 @@ export default defineComponent({
   render() {
     return (<NCollapse defaultExpandedNames={[this.title]}>
       <NCollapseItem class="fc-collapse" title={this.title} name={this.title}>
-        <div class="fc-collapse-item grid grid-cols-3 gap-4px b-bottom p-4px">
+        <div class="fc-collapse-item grid grid-cols-3 gap-4px p-4px">
           {this.$slots.default?.()}
         </div>
       </NCollapseItem>

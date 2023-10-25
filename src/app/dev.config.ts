@@ -105,6 +105,11 @@ export default {
         props: {},
       },
       {
+        type: 'html',
+        label: 'html',
+        props: {},
+      },
+      {
         type: 'alert',
         label: 'alert',
         props: {},

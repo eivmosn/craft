@@ -1,4 +1,4 @@
-import { NScrollbar } from 'naive-ui'
+import { NInput, NScrollbar } from 'naive-ui'
 import { SCROLLBAR_RAIL } from 'src/core/enums'
 import type { PropType } from 'vue'
 import { defineComponent, onMounted, ref } from 'vue'
@@ -33,19 +33,13 @@ export const Scrollview = defineComponent({
 
 export const Paneview = defineComponent({
   name: 'Paneview',
-  props: {
-    title: {
-      type: String,
-      default: 'Title',
-    },
-  },
   render() {
     return (<div class="h-full">
-      <div class="h-48px fs b-bottom px-10px text-16px text-#666">
-        {this.title}
+      <div class="h-48px fs b-bottom text-16px text-#666">
+        {this.$slots.title?.()}
       </div>
       <Scrollview class="h-[calc(100%-48px)]">
-        { this.$slots.default?.()}
+        {this.$slots.default?.()}
       </Scrollview>
     </div>)
   },

@@ -26,4 +26,5 @@ export default {
   containers: 'Containers',
   widgets: 'Components',
   settings: 'Property Settings',
+  html: 'HTML',
 }
