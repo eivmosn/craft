@@ -26,6 +26,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vueuse/core": "^10.5.0",
     "codemirror": "^6.0.1",
+    "fuse.js": "^7.0.0",
     "lint-staged": "^14.0.1",
     "naive-ui": "^2.35.0",
     "simple-git-hooks": "^2.9.0",
