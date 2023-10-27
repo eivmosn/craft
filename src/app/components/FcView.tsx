@@ -35,7 +35,7 @@ export const Paneview = defineComponent({
   name: 'Paneview',
   render() {
     return (<div class="h-full">
-      <div class="h-48px fs b-bottom text-16px text-#666">
+      <div class="h-48px fs b-bottom text-20px text-#666">
         {this.$slots.title?.()}
       </div>
       <Scrollview class="h-[calc(100%-48px)]">
