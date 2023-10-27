@@ -16,7 +16,21 @@ const json: FC.Widget = {
     {
       id: '',
       type: 'input',
-      label: '名字',
+      label: '输入框',
+      field: 'name',
+      props: {},
+    },
+    {
+      id: '',
+      type: 'input',
+      label: '数字框',
+      field: 'name',
+      props: {},
+    },
+    {
+      id: '',
+      type: 'select',
+      label: '选择框',
       field: 'name',
       props: {},
     },
@@ -24,13 +38,13 @@ const json: FC.Widget = {
 }
 
 export function renderWidget(widget: FC.Widget) {
-  return (<FcOption >
+  return (<FcOption active={widget.label === '数字'}>
     {
       widget.type === 'group'
         ? <FcGroup widget={widget}>
           {widget.children?.map(item => renderWidget(item))}
         </FcGroup>
-        : <NFormItem showFeedback={false} label="测试:" labelPlacement="left" class="w-full">
+        : <NFormItem labelWidth={70} showFeedback={false} label={widget.label} labelPlacement="left" class="w-full">
           <NInput />
         </NFormItem>
     }
@@ -45,10 +59,11 @@ export default defineComponent({
   },
   render() {
     return (<div class="h-[calc(100%-48px)] bg-[var(--fc-background-deep)] p-4px">
-      {/* <Scrollview class="b bg-[var(--fc-background-light)] p-2px">
-      </Scrollview> */}
-      {json.children.map(widget => renderWidget(widget))}
-
+      <Scrollview class="b bg-[var(--fc-background-light)]">
+        <div class="grid grid-cols-1 gap-4px p-2px">
+          {json.children.map(widget => renderWidget(widget))}
+        </div>
+      </Scrollview>
     </div>)
   },
 })
