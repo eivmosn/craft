@@ -18,7 +18,7 @@ export default defineComponent({
       }}
       >
         <div class="p-10px">
-          <NFormItem showFeedback={false} label="栅格:" labelPlacement="left">
+          {/* <NFormItem showFeedback={false} label="栅格:" labelPlacement="left">
             <NSlider
               tooltip={false}
               value={12}
@@ -26,7 +26,7 @@ export default defineComponent({
                 thumb: () => <NButton type="primary" circle size="tiny">12</NButton>,
               }}
             />
-          </NFormItem>
+          </NFormItem> */}
         </div>
       </Paneview>
     </div>)
