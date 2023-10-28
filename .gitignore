@@ -22,6 +22,3 @@ pnpm-lock.yaml
 *.sln
 *.sw?
 
-# Auto generated files
-pnpm-lock.yaml
-
