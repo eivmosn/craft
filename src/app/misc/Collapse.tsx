@@ -11,12 +11,12 @@ export default defineComponent({
     },
   },
   render() {
-    return (<NCollapse defaultExpandedNames={[this.title]}>
-      <NCollapseItem class="fc-collapse" title={this.title} name={this.title}>
-        <div class="fc-collapse-item grid grid-cols-3 gap-4px p-4px">
+    return (
+      <NCollapse defaultExpandedNames={[this.title]}>
+        <NCollapseItem class="fc-collapse" title={this.title} name={this.title}>
           {this.$slots.default?.()}
-        </div>
-      </NCollapseItem>
-    </NCollapse>)
+        </NCollapseItem>
+      </NCollapse>
+    )
   },
 })

@@ -1,7 +1,7 @@
 import { NScrollbar } from 'naive-ui'
 import { defineComponent } from 'vue'
 import { EditorState, type Extension } from '@codemirror/state'
-import { drawSelection, dropCursor, highlightActiveLineGutter, highlightSpecialChars, lineNumbers } from '@codemirror/view'
+import { EditorView, drawSelection, dropCursor, highlightActiveLineGutter, highlightSpecialChars, lineNumbers } from '@codemirror/view'
 import { history } from '@codemirror/commands'
 
 export function mirrorExtensions(extensions?: Extension[]) {
@@ -25,8 +25,14 @@ export default defineComponent({
   },
   render() {
     return (
-      <NScrollbar xScrollable class="b">
-        <div>CodeMirror</div>
+      <NScrollbar
+        xScrollable
+        class="b"
+        style={{
+          height: '200px',
+        }}
+      >
+
       </NScrollbar>
     )
   },

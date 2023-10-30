@@ -40,3 +40,7 @@ body,
 .fc-collapse.border-top {
     border-top: 1px solid var(--fc-border) !important;
 }
+
+.sortable-fallback {
+    opacity: 1 !important;
+}

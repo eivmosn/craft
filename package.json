@@ -36,6 +36,7 @@
     "simple-git-hooks": "^2.9.0",
     "unocss": "^0.57.1",
     "vue": "^3.3.7",
+    "vue-draggable-plus": "^0.2.6",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
