@@ -14,16 +14,18 @@ export default defineComponent({
     }
   },
   render() {
-    return (<div class="b">
-      <div class="min-h-30px b-bottom p-4px">
-        分组标题
-      </div>
-      <div class="min-h-120px p-4px">
-        {
+    return (
+      <div class="w-full b">
+        <div class="min-h-30px b-bottom p-4px">
+          分组标题
+        </div>
+        <div class="min-h-120px p-4px">
+          {/* {
             !this.hasChildren && <div class="min-h-120px fc">拖拽组件到这里</div>
-        }
-        {this.$slots.default?.()}
+        } */}
+          {this.$slots.default?.()}
+        </div>
       </div>
-    </div>)
+    )
   },
 })

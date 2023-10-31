@@ -70,7 +70,10 @@ export default defineComponent({
   render() {
     return (
       <div class="h-[calc(100%-48px)] bg-[var(--fc-background-deep)] p-4px">
-        <Scrollview class="b bg-[var(--fc-background-light)]">
+        <div class="h-full bg-[var(--fc-background-light)]">
+
+        </div>
+        {/* <Scrollview class="b bg-[var(--fc-background-light)]">
           <VueDraggable
             animation={120}
             group={{
@@ -89,7 +92,7 @@ export default defineComponent({
             {this.list.map(item => renderWidget(item))}
           </VueDraggable>
         </Scrollview>
-        {/* <div class="grid grid-cols-1 gap-4px p-2px">
+        <div class="grid grid-cols-1 gap-4px p-2px">
           {json.children.map(widget => renderWidget(widget))}
         </div> */}
       </div>
