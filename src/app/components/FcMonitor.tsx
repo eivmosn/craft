@@ -70,7 +70,7 @@ export default defineComponent({
   render() {
     return (
       <div class="h-[calc(100%-48px)] bg-[var(--fc-background-deep)] p-4px">
-        <div class="h-full bg-[var(--fc-background-light)]">
+        <div class="h-full b bg-[var(--fc-background-light)]">
 
         </div>
         {/* <Scrollview class="b bg-[var(--fc-background-light)]">
