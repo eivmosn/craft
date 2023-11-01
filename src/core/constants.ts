@@ -24,6 +24,8 @@ export const enum Components {
   MULTIPLE_SELECT = 'multipleSelect',
 }
 
+export const THEME_COLOR = '#0079fe'
+
 export function makeMap(
   str: string,
   expectsLowerCase?: boolean,

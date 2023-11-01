@@ -1,7 +1,7 @@
 import { type GlobalThemeOverrides, darkTheme, lightTheme } from 'naive-ui'
 import { computed } from 'vue'
 import { useDark, useToggle } from '@vueuse/core'
-import { Color } from './constants'
+import { THEME_COLOR } from './constants'
 
 export function useDarkMode() {
   const dark = useDark()
@@ -20,9 +20,9 @@ export function useDarkMode() {
 
 export const themeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColorHover: Color.PRIMARY,
-    primaryColorSuppl: Color.PRIMARY,
-    primaryColor: Color.PRIMARY,
-    primaryColorPressed: Color.PRIMARY,
+    primaryColorHover: THEME_COLOR,
+    primaryColorSuppl: THEME_COLOR,
+    primaryColor: THEME_COLOR,
+    primaryColorPressed: THEME_COLOR,
   },
 }
