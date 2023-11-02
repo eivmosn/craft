@@ -28,4 +28,8 @@ export default {
   component: '组件',
   settings: '属性配置',
   html: 'HTML',
+  components: '组件',
+  layers: '结构',
+  schema: '模型',
+  setting: '设置',
 }

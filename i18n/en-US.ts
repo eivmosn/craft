@@ -27,4 +27,8 @@ export default {
   widgets: 'Components',
   settings: 'Property Settings',
   html: 'HTML',
+  components: 'Components',
+  layers: 'Layers',
+  schema: 'Schema',
+  setting: 'Settings',
 }
