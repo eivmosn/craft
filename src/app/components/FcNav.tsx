@@ -1,26 +1,6 @@
 import { defineComponent, ref } from 'vue'
 import { NTooltip } from 'naive-ui'
 import i18n from 'i18n'
-import icon from '../icon.config'
-
-const navs = [
-  {
-    name: 'components',
-    icon: icon.puzzle,
-  },
-  {
-    name: 'layers',
-    icon: icon.layers,
-  },
-  {
-    name: 'schema',
-    icon: icon.code,
-  },
-  {
-    name: 'setting',
-    icon: icon.setting,
-  },
-]
 
 export default defineComponent({
   inheritAttrs: false,
@@ -34,11 +14,12 @@ export default defineComponent({
   render() {
     return (
       <div class="min-w-48px w-48px fc flex-col justify-start gap-22px b-right py-20px text-#666">
-        {
+        {/* {
           navs.map((nav, index) => {
             return (
               <NTooltip
                 placement="right"
+                key={nav.name}
                 v-slots={{
                   trigger: () => (
                     <div
@@ -53,7 +34,7 @@ export default defineComponent({
               </NTooltip>
             )
           })
-        }
+        } */}
       </div>
     )
   },
