@@ -23,9 +23,9 @@
     "@antfu/eslint-config": "1.1.0",
     "@codemirror/commands": "^6.3.0",
     "@codemirror/state": "^6.3.1",
-    "@codemirror/view": "^6.21.4",
+    "@codemirror/view": "^6.22.0",
     "@eivmosn/utils": "^1.0.6",
-    "@unocss/eslint-config": "^0.57.1",
+    "@unocss/eslint-config": "^0.57.2",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vueuse/core": "^10.5.0",
@@ -36,8 +36,7 @@
     "simple-git-hooks": "^2.9.0",
     "unocss": "^0.57.2",
     "vue": "^3.3.7",
-    "vue-draggable-plus": "^0.2.6",
-    "vuedraggable": "^4.1.0"
+    "vue-draggable-plus": "^0.2.6"
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
