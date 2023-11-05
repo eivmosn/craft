@@ -1,7 +1,7 @@
 import { NScrollbar } from 'naive-ui'
-import { ClassNames } from 'src/core/constants'
 import type { PropType } from 'vue'
 import { defineComponent, onMounted, ref } from 'vue'
+import { ClassNames } from '../core/constants'
 
 export const Scrollview = defineComponent({
   name: 'Scrollview',

@@ -4,14 +4,16 @@ import {
   NLoadingBarProvider,
   NMessageProvider,
   NNotificationProvider,
+  darkTheme,
+  lightTheme,
   useDialog,
   useLoadingBar,
   useMessage,
   useNotification,
 } from 'naive-ui'
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 import FormCook from './app/components/FormCook'
-import { useDarkMode } from './core/theme'
 
 const GlobalInject = defineComponent({
   name: 'GlobalInject',
@@ -32,29 +34,42 @@ const GlobalInject = defineComponent({
   },
 })
 
+export function useDarkMode() {
+  const dark = useDark()
+  const toggle = useToggle(dark)
+
+  const theme = computed(() => {
+    return dark.value ? darkTheme : lightTheme
+  })
+
+  return {
+    dark,
+    theme,
+    toggle,
+  }
+}
+
 export default defineComponent({
   name: 'NConfigProvider',
   inheritAttrs: false,
   setup() {
-    const { toggle, theme } = useDarkMode()
-    toggle()
-    return {
-      theme,
-    }
+
   },
   render() {
-    return (<NConfigProvider theme={this.theme}>
-      <NDialogProvider>
-        <NNotificationProvider>
-          <NMessageProvider>
-            <NLoadingBarProvider >
-              <GlobalInject>
-                <FormCook />
-              </GlobalInject>
-            </NLoadingBarProvider>
-          </NMessageProvider>
-        </NNotificationProvider>
-      </NDialogProvider>
-    </NConfigProvider>)
+    return (
+      <NConfigProvider>
+        <NDialogProvider>
+          <NNotificationProvider>
+            <NMessageProvider>
+              <NLoadingBarProvider>
+                <GlobalInject>
+                  <FormCook />
+                </GlobalInject>
+              </NLoadingBarProvider>
+            </NMessageProvider>
+          </NNotificationProvider>
+        </NDialogProvider>
+      </NConfigProvider>
+    )
   },
 })
