@@ -8,9 +8,10 @@ import {
   lineNumbers,
 } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
-import { indentMore } from '@codemirror/commands'
+import { defaultKeymap, indentMore } from '@codemirror/commands'
 import { json } from '@codemirror/lang-json'
 import { defaultHighlightStyle, foldGutter, syntaxHighlighting } from '@codemirror/language'
+import { searchKeymap } from '@codemirror/search'
 
 interface PathAttributes {
   [key: string]: string
@@ -50,6 +51,7 @@ export function useEditor(options: {
       highlightActiveLine(),
       editorplaceholder(placeholder),
       keymap.of([
+        ...defaultKeymap,
         {
           key: 'Tab',
           run: ({ state, dispatch }) => {
@@ -59,9 +61,29 @@ export function useEditor(options: {
             return true
           },
         },
+        {
+          key: 'Mod-f',
+          run: () => {
+            const editor = container.querySelector('.cm-editor')
+            const existingPanel = editor && editor.querySelector('.cm-search-panel')
+            if (editor && !existingPanel) {
+              const div = document.createElement('div')
+              div.className = 'cm-search-panel'
+              editor.appendChild(div)
+            }
+            return true
+          },
+        },
       ]),
       highlightActiveLineGutter(),
       EditorView.theme({
+        '.cm-scroller': {
+          overflow: 'auto',
+          maxHeight: '200px',
+        },
+        '.cm-content, .cm-gutter': {
+          minHeight: '150px',
+        },
         '.cm-activeLineGutter': {
           color: '#333',
           backgroundColor: 'unset',
@@ -71,13 +93,28 @@ export function useEditor(options: {
           display: 'flex',
           alignItems: 'center',
         },
+        '.cm-gutterElement .collapse-icon': {
+          justifyContent: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          paddingRight: '3px',
+        },
+        '.cm-search-panel': {
+          position: 'absolute',
+          right: '30px',
+          top: '5px',
+          width: '320px',
+          height: '30px',
+          border: '1px solid #000',
+          backgroundColor: '#fff',
+        },
       }),
       foldGutter({
         markerDOM: (open) => {
           const icon = document.createElement('div')
           const icon2 = document.createElement('div')
-          icon2.className = 'cm-gutterElement'
-          icon.className = 'cm-gutterElement'
+          icon2.className = 'collapse-icon'
+          icon.className = 'collapse-icon'
           const svgRight = createSVGPath({
             width: '15',
             height: '15',
@@ -134,6 +171,6 @@ export default defineComponent({
     })
   },
   render() {
-    return <div class="b" id="editor"></div>
+    return <div class="relative b" id="editor"></div>
   },
 })
