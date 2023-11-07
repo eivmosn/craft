@@ -43,19 +43,25 @@ export function useEditor(options: {
           backgroundColor: 'unset',
         },
         '.cm-gutterElement': {
-          display: 'flex',
           justifyContent: 'center',
+          display: 'flex',
           alignItems: 'center',
         },
       }),
       foldGutter({
         markerDOM: () => {
-          const downArrow = document.createElement('svg')
-          downArrow.setAttribute('width', '15px')
-          downArrow.setAttribute('height', '15px')
-          downArrow.setAttribute('viewBox', '0 0 24 24')
-          downArrow.innerHTML = `<path fill="#333" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z"/>`
-          return downArrow
+          const icon = document.createElement('div')
+          icon.style.cssText = 'display: flex; align-items: center; justify-content: center;'
+          const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+          svg.setAttribute('width', '20')
+          svg.setAttribute('height', '20')
+          svg.setAttribute('viewBox', '0 0 24 24')
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+          path.setAttribute('fill', 'currentColor')
+          path.setAttribute('d', 'M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41')
+          svg.appendChild(path)
+          icon.appendChild(svg)
+          return icon
         },
       }),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
@@ -73,7 +79,6 @@ export function useEditor(options: {
     view,
   }
 }
-
 export default defineComponent({
   inheritAttrs: false,
   name: 'App',
