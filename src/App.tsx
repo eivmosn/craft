@@ -1,75 +1,91 @@
+import { defineComponent, onMounted } from 'vue'
 import {
-  NConfigProvider,
-  NDialogProvider,
-  NLoadingBarProvider,
-  NMessageProvider,
-  NNotificationProvider,
-  darkTheme,
-  lightTheme,
-  useDialog,
-  useLoadingBar,
-  useMessage,
-  useNotification,
-} from 'naive-ui'
-import { computed, defineComponent } from 'vue'
-import { useDark, useToggle } from '@vueuse/core'
-import FormCook from './app/components/FormCook'
+  EditorView,
+  placeholder as editorplaceholder,
+  highlightActiveLine,
+  highlightActiveLineGutter,
+  keymap,
+  lineNumbers,
+} from '@codemirror/view'
+import { EditorState } from '@codemirror/state'
+import { indentMore } from '@codemirror/commands'
+import { json } from '@codemirror/lang-json'
+import { defaultHighlightStyle, foldGutter, syntaxHighlighting } from '@codemirror/language'
 
-const GlobalInject = defineComponent({
-  name: 'GlobalInject',
-  inheritAttrs: false,
-  setup() {
-    const dialog = useDialog()
-    const message = useMessage()
-    const loadingBar = useLoadingBar()
-    const notification = useNotification()
+export function useEditor(options: {
+  container: HTMLElement
+  lineNumbers?: boolean
+  placeholder?: string
+}) {
+  const { placeholder = '请输入..', container } = options
 
-    window.$dialog = dialog
-    window.$message = message
-    window.$loading = loadingBar
-    window.$notification = notification
-  },
-  render() {
-    return this.$slots.default?.()
-  },
-})
+  const state = EditorState.create({
+    doc: '',
+    extensions: [
+      lineNumbers(),
+      highlightActiveLine(),
+      editorplaceholder(placeholder),
+      keymap.of([
+        {
+          key: 'Tab',
+          run: ({ state, dispatch }) => {
+            if (state.selection.ranges.some(range => !range.empty))
+              return indentMore({ state, dispatch })
+            dispatch(state.update(state.replaceSelection(' '), { scrollIntoView: true, userEvent: 'input' }))
+            return true
+          },
+        },
+      ]),
+      highlightActiveLineGutter(),
+      EditorView.theme({
+        '.cm-activeLineGutter': {
+          color: '#333',
+          backgroundColor: 'unset',
+        },
+        '.cm-gutterElement': {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+      }),
+      foldGutter({
+        markerDOM: () => {
+          const downArrow = document.createElement('svg')
+          downArrow.setAttribute('width', '15px')
+          downArrow.setAttribute('height', '15px')
+          downArrow.setAttribute('viewBox', '0 0 24 24')
+          downArrow.innerHTML = `<path fill="#333" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z"/>`
+          return downArrow
+        },
+      }),
+      syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+      json(),
+    ],
+  })
 
-export function useDarkMode() {
-  const dark = useDark()
-  const toggle = useToggle(dark)
-
-  const theme = computed(() => {
-    return dark.value ? darkTheme : lightTheme
+  const view = new EditorView({
+    parent: container,
+    state,
   })
 
   return {
-    dark,
-    theme,
-    toggle,
+    state,
+    view,
   }
 }
 
 export default defineComponent({
-  name: 'NConfigProvider',
   inheritAttrs: false,
+  name: 'App',
   setup() {
-
+    onMounted(() => {
+      useEditor({
+        container: document.getElementById('editor'),
+        lineNumbers: true,
+      })
+    })
   },
   render() {
-    return (
-      <NConfigProvider>
-        <NDialogProvider>
-          <NNotificationProvider>
-            <NMessageProvider>
-              <NLoadingBarProvider>
-                <GlobalInject>
-                  <FormCook />
-                </GlobalInject>
-              </NLoadingBarProvider>
-            </NMessageProvider>
-          </NNotificationProvider>
-        </NDialogProvider>
-      </NConfigProvider>
-    )
+    return <div class="b" id="editor"></div>
   },
 })
