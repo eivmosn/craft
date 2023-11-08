@@ -9,9 +9,13 @@ import {
 } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
 import { defaultKeymap, indentMore } from '@codemirror/commands'
-import { json } from '@codemirror/lang-json'
+
+import { autocompletion, completeFromList, ifNotIn } from '@codemirror/autocomplete'
+
+// import { json } from '@codemirror/lang-json'
 import { defaultHighlightStyle, foldGutter, syntaxHighlighting } from '@codemirror/language'
-import { SearchQuery, findNext, findPrevious, replaceNext, search, searchKeymap, selectMatches, setSearchQuery } from '@codemirror/search'
+import { SearchQuery, findNext, findPrevious, replaceNext, search, searchKeymap, setSearchQuery } from '@codemirror/search'
+import { javascript, javascriptLanguage, scopeCompletionSource } from '@codemirror/lang-javascript'
 
 interface PathAttributes {
   [key: string]: string
@@ -49,6 +53,32 @@ export function useEditor(options: {
     extensions: [
       lineNumbers(),
       highlightActiveLine(),
+      autocompletion(),
+      javascript({
+        jsx: true,
+        typescript: true,
+      }),
+      javascriptLanguage.data.of({
+        autocomplete: ifNotIn([
+          '__VUE__',
+          '__VUE_PROD_DEVTOOLS__',
+        ], scopeCompletionSource(globalThis)),
+      }),
+      javascriptLanguage.data.of({
+        autocomplete: completeFromList([
+          { label: 'option', type: 'keyword', info: '表单配置' },
+          { label: 'params', type: 'keyword', info: '全局变量' },
+          { label: 'form', type: 'keyword', info: '表单值' },
+          { label: 'parent', type: 'keyword', info: '父级表单(option,form 等)' },
+          { label: 'cache', type: 'keyword', info: '表单缓存对象' },
+          { label: 'page', type: 'keyword', info: '表单分页对象' },
+          { label: 'sys', type: 'keyword', info: '表单其他参数' },
+          { label: 'rowData', type: 'keyword', info: '表格行数据' },
+          { label: 'result', type: 'keyword', info: '接口返回值' },
+          { label: 'select', type: 'keyword', info: '下拉选中值(对象)' },
+          { label: 'value', type: 'keyword', info: '当前组件值' },
+        ]),
+      }),
       editorplaceholder(placeholder),
       keymap.of([
         ...defaultKeymap,
@@ -108,9 +138,11 @@ export function useEditor(options: {
         },
         '.cm-scroller': {
           overflow: 'auto',
-          maxHeight: '200px',
+          // maxHeight: '200px',
         },
-        '.cm-gutter': {
+        '.cm-gutters': {
+          background: 'unset',
+          border: 'unset',
           userSelect: 'none',
         },
         '.cm-content, .cm-gutter': {
@@ -120,19 +152,16 @@ export function useEditor(options: {
           color: '#333',
           backgroundColor: 'unset',
         },
-        '.cm-gutterElement': {
+        '.cm-gutterElement, .cm-gutterIcon': {
           justifyContent: 'center',
           display: 'flex',
           alignItems: 'center',
         },
-        '.cm-gutterElement .cm-gutterIcon': {
-          justifyContent: 'center',
-          display: 'flex',
-          alignItems: 'center',
+        '.cm-gutterIcon': {
           paddingRight: '3px',
         },
-        '.cm-search-panel, .cm-panels': {
-          position: 'absolute',
+        '.cm-panels': {
+          position: 'fixed',
           right: '30px',
           top: '5px',
           border: '1px solid #000',
@@ -144,23 +173,29 @@ export function useEditor(options: {
           bottom: 'unset !important',
           left: 'unset !important',
         },
-        '.cm-search-panel input': {
-          border: '1px solid #000',
-          outline: 'none',
+        '.cm-gutters:hover .cm-gutterIcon.open': {
+          opacity: 1,
+          transition: 'opacity 0.2s ease-in',
         },
-        '.cm-search-panel .cm-search-row': {
-          display: 'flex',
-          alignItems: 'center',
-          gap: '3px',
-          justifyContent: 'flex-start',
+        '.cm-gutterIcon.open': {
+          opacity: 0,
+          transition: 'opacity 0.2s ease-out',
+        },
+      }),
+      EditorView.baseTheme({
+        '.cm-completionIcon-keyword': {
+          '&:after': { content: '\'$\' !important' },
+        },
+        '.cm-completionIcon-variable': {
+          '&:after': { content: '\'*\' !important' },
         },
       }),
       foldGutter({
         markerDOM: (open) => {
           const icon = document.createElement('div')
           const icon2 = document.createElement('div')
-          icon2.className = 'cm-gutterIcon'
-          icon.className = 'cm-gutterIcon'
+          icon2.className = 'cm-gutterIcon close'
+          icon.className = 'cm-gutterIcon open'
           const svgRight = createSVGPath({
             width: '15',
             height: '15',
@@ -191,7 +226,6 @@ export function useEditor(options: {
         },
       }),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-      json(),
       search({
         createPanel(view) {
           const dom = document.createElement('div')
