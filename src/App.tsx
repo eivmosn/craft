@@ -11,7 +11,7 @@ import { EditorState } from '@codemirror/state'
 import { defaultKeymap, indentMore } from '@codemirror/commands'
 import { json } from '@codemirror/lang-json'
 import { defaultHighlightStyle, foldGutter, syntaxHighlighting } from '@codemirror/language'
-import { searchKeymap } from '@codemirror/search'
+import { SearchQuery, findNext, findPrevious, replaceNext, search, searchKeymap, selectMatches, setSearchQuery } from '@codemirror/search'
 
 interface PathAttributes {
   [key: string]: string
@@ -52,6 +52,7 @@ export function useEditor(options: {
       editorplaceholder(placeholder),
       keymap.of([
         ...defaultKeymap,
+        ...searchKeymap,
         {
           key: 'Tab',
           run: ({ state, dispatch }) => {
@@ -61,25 +62,56 @@ export function useEditor(options: {
             return true
           },
         },
+        // {
+        //   key: 'Mod-f',
+        //   run: () => {
+        //     const editor = container.querySelector('.cm-editor')
+        //     const existingPanel = editor && editor.querySelector('.cm-search-panel')
+        //     if (editor && !existingPanel) {
+        //       const div = document.createElement('div')
+        //       div.className = 'cm-search-panel'
+        //       div.innerHTML = `
+        //         <div class='cm-search-row'>
+        //           <input type="text" placeholder="Find" />
+        //           <button>Next</button>
+        //           <button>Prev</button>
+        //         </div>
+        //         <div class='cm-search-row'>
+        //           <input type="text" placeholder="Replace" />
+        //           <button>Replace</button>
+        //           <button>Replace All</button>
+        //         </div>
+        //       `
+        //       editor.appendChild(div)
+        //     }
+        //     return true
+        //   },
+        // },
         {
-          key: 'Mod-f',
+          key: 'Escape',
           run: () => {
             const editor = container.querySelector('.cm-editor')
-            const existingPanel = editor && editor.querySelector('.cm-search-panel')
-            if (editor && !existingPanel) {
-              const div = document.createElement('div')
-              div.className = 'cm-search-panel'
-              editor.appendChild(div)
-            }
+            const search = editor.querySelector('.cm-search-panel')
+            if (search)
+              search.parentElement.removeChild(search)
             return true
           },
         },
       ]),
       highlightActiveLineGutter(),
       EditorView.theme({
+        '&.cm-editor': {
+          border: '1px solid #ddd',
+        },
+        '&.cm-focused': {
+          outline: 'none',
+        },
         '.cm-scroller': {
           overflow: 'auto',
           maxHeight: '200px',
+        },
+        '.cm-gutter': {
+          userSelect: 'none',
         },
         '.cm-content, .cm-gutter': {
           minHeight: '150px',
@@ -93,28 +125,42 @@ export function useEditor(options: {
           display: 'flex',
           alignItems: 'center',
         },
-        '.cm-gutterElement .collapse-icon': {
+        '.cm-gutterElement .cm-gutterIcon': {
           justifyContent: 'center',
           display: 'flex',
           alignItems: 'center',
           paddingRight: '3px',
         },
-        '.cm-search-panel': {
+        '.cm-search-panel, .cm-panels': {
           position: 'absolute',
           right: '30px',
           top: '5px',
-          width: '320px',
-          height: '30px',
           border: '1px solid #000',
           backgroundColor: '#fff',
+          padding: '3px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '3px',
+          bottom: 'unset !important',
+          left: 'unset !important',
+        },
+        '.cm-search-panel input': {
+          border: '1px solid #000',
+          outline: 'none',
+        },
+        '.cm-search-panel .cm-search-row': {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '3px',
+          justifyContent: 'flex-start',
         },
       }),
       foldGutter({
         markerDOM: (open) => {
           const icon = document.createElement('div')
           const icon2 = document.createElement('div')
-          icon2.className = 'collapse-icon'
-          icon.className = 'collapse-icon'
+          icon2.className = 'cm-gutterIcon'
+          icon.className = 'cm-gutterIcon'
           const svgRight = createSVGPath({
             width: '15',
             height: '15',
@@ -146,6 +192,49 @@ export function useEditor(options: {
       }),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
       json(),
+      search({
+        createPanel(view) {
+          const dom = document.createElement('div')
+          const search = document.createElement('button')
+          const next = document.createElement('button')
+          const prev = document.createElement('button')
+          const replace = document.createElement('button')
+
+          next.innerHTML = '下一个'
+          prev.innerHTML = '上一个'
+          search.innerHTML = '测试'
+          replace.innerHTML = '替换'
+
+          search.addEventListener('click', () => {
+            const query = new SearchQuery({
+              search: 'p',
+              replace: '操场',
+            })
+            view.dispatch({ effects: setSearchQuery.of(query) })
+          })
+
+          next.addEventListener('click', () => {
+            findNext(view)
+          })
+
+          prev.addEventListener('click', () => {
+            findPrevious(view)
+          })
+
+          replace.addEventListener('click', () => {
+            replaceNext(view)
+          })
+
+          dom.appendChild(search)
+          dom.appendChild(next)
+          dom.appendChild(prev)
+          dom.appendChild(replace)
+
+          return {
+            dom,
+          }
+        },
+      }),
     ],
   })
 
@@ -171,6 +260,6 @@ export default defineComponent({
     })
   },
   render() {
-    return <div class="relative b" id="editor"></div>
+    return <div class="relative" id="editor"></div>
   },
 })
