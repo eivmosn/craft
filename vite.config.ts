@@ -12,7 +12,6 @@ export default defineConfig({
   resolve: {
     alias: {
       src: '/src',
-      i18n: '/i18n/index',
     },
   },
 })
