@@ -1,14 +1,10 @@
 import { defineComponent } from 'vue'
-import { Input } from 'src/config/element'
-import { NInput } from 'naive-ui'
-import { useState } from 'src/core/state'
+import { NForm, NFormItemGi, NGrid, NInput } from 'naive-ui'
 
 export default defineComponent({
   inheritAttrs: false,
   name: 'App',
   setup() {
-    const { value, setValue } = useState()
-
     const item = {
       key: '',
       field: 'field',
@@ -22,15 +18,59 @@ export default defineComponent({
 
     return {
       item,
-      value,
-      setValue,
     }
   },
   render() {
     return (
       <div class="p-10">
-        {JSON.stringify(this.value)}
-        <NInput value={this.value} onUpdateValue={this.setValue} />
+        <NForm
+          showFeedback={false}
+          labelPlacement="left"
+          requireMarkPlacement="left"
+        >
+          <NGrid xGap={8} yGap={8}>
+            <NFormItemGi
+              label="测试:"
+              required
+              labelStyle={{
+                color: 'indigo',
+              }}
+              span={12}
+            >
+              <NInput />
+            </NFormItemGi>
+            <NFormItemGi
+              label="测试:"
+              required
+              labelStyle={{
+                color: 'indigo',
+              }}
+              span={12}
+            >
+              <NInput />
+            </NFormItemGi>
+            <NFormItemGi
+              label="测试:"
+              required
+              labelStyle={{
+                color: 'indigo',
+              }}
+              span={12}
+            >
+              <NInput />
+            </NFormItemGi>
+            <NFormItemGi
+              label="测试:"
+              required
+              labelStyle={{
+                color: 'indigo',
+              }}
+              span={12}
+            >
+              <NInput />
+            </NFormItemGi>
+          </NGrid>
+        </NForm>
       </div>
     )
   },
