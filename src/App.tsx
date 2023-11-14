@@ -59,16 +59,6 @@ export default defineComponent({
             >
               <NInput />
             </NFormItemGi>
-            <NFormItemGi
-              label="测试:"
-              required
-              labelStyle={{
-                color: 'indigo',
-              }}
-              span={12}
-            >
-              <NInput />
-            </NFormItemGi>
           </NGrid>
         </NForm>
       </div>
