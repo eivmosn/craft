@@ -13,6 +13,7 @@ export default antfu(
         },
       ],
     },
+    gitignore: true,
   },
   unocss.configs.flat,
 )

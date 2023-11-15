@@ -22,3 +22,5 @@ pnpm-lock.yaml
 *.sln
 *.sw?
 
+unimport.d.ts
+
