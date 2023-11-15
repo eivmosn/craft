@@ -4,5 +4,4 @@ const root = `
     --base-padding: 6px;
 }
 `
-
 export default `${root}`
