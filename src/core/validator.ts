@@ -1,4 +1,6 @@
-import type { FormInst } from 'naive-ui'
+import type {
+  FormInst,
+} from 'naive-ui'
 
 export function validator(formInst: FormInst) {
   return new Promise<boolean>(() => {

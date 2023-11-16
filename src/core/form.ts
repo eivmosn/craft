@@ -1,4 +1,6 @@
-import type { FormItemRule } from 'naive-ui'
+import type {
+  FormItemRule,
+} from 'naive-ui'
 
 export function formLabel(): string {
   return ''

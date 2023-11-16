@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { LRUCache } from 'lru-cache'
+import {
+  LRUCache,
+} from 'lru-cache'
 
 const httpRequest = axios.create({
   headers: {

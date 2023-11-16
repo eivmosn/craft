@@ -1,4 +1,9 @@
-import { NForm, NFormItemGi, NGrid, NInput } from 'naive-ui'
+import {
+  NForm,
+  NFormItemGi,
+  NGrid,
+  NInput,
+} from 'naive-ui'
 
 export default defineComponent({
   inheritAttrs: false,
