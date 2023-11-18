@@ -4,6 +4,7 @@ import {
   NGrid,
   NInput,
 } from 'naive-ui'
+import Hello from './components/Hello'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -27,6 +28,9 @@ export default defineComponent({
   render() {
     return (
       <div class="p-10">
+        <Hello {...this.item}>
+
+        </Hello>
         <NForm
           showFeedback={false}
           labelPlacement="left"
