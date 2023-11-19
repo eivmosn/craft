@@ -4,6 +4,9 @@ import {
   NGrid,
   NInput,
 } from 'naive-ui'
+import {
+  makeMap,
+} from '@vue/shared'
 import Hello from './components/Hello'
 
 export default defineComponent({
@@ -20,6 +23,12 @@ export default defineComponent({
         defaultValue: '1',
       },
     }
+
+    const containers = 'group,grid'
+
+    const isContainers = /* #__PURE__ */ makeMap(containers)
+
+    console.log(isContainers('group2'))
 
     return {
       item,

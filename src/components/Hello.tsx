@@ -3,10 +3,6 @@ import type {
   SlotsType,
 } from 'vue'
 
-import {
-  makeMap,
-} from '@vue/shared'
-
 export default defineComponent({
   inheritAttrs: false,
   name: 'Hello',
