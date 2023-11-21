@@ -3,7 +3,8 @@ import {
   LRUCache,
 } from 'lru-cache'
 
-const httpRequest = axios.create({
+export const httpRequest = axios.create({
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
   },

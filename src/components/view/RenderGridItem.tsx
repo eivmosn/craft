@@ -2,19 +2,12 @@ import {
   NFormItem,
   NInput,
 } from 'naive-ui'
-import {
-  getAttrs,
-} from 'src/shared/utils'
 
 export default defineComponent({
   inheritAttrs: false,
-  name: 'Widget',
-  setup(_, { attrs }) {
-    const { props, events } = getAttrs(attrs)
-    console.log(events)
-    return {
-      props,
-    }
+  name: 'RenderGridItem',
+  setup() {
+
   },
   render() {
     return (

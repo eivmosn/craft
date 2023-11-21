@@ -17,4 +17,19 @@ declare global {
         data: T
       }
     }
+    namespace FC {
+      interface Config {
+        gapX: number
+        gapY: number
+        labelAlign: 'left' | 'right'
+        labelPlacement: 'left' | 'top'
+        suffix: string
+        labelWidth: number
+      }
+      interface Form {
+        data: Record<any, any>
+        items: any[]
+        config: Partial<Config>
+      }
+    }
 }

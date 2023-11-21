@@ -2,8 +2,8 @@ import type {
   FormItemRule,
 } from 'naive-ui'
 
-export function formLabel(): string {
-  return ''
+export function formLabel(label: string, suffix: string): string {
+  return (suffix && label) ? `${label}${suffix}` : label
 }
 
 export function showLabel(): boolean {

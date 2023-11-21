@@ -13,12 +13,10 @@ export function toPxString(value: number | string) {
   }
 }
 
-export function getAttrs(attrs: Data) {
+export function getAttrs(attrs: Record<string, any>) {
+  const { props, ...widget } = attrs
   return {
-    props: attrs.props,
-    events: {
-      onUpdate: attrs.onUpdate as Function,
-      onChange: attrs.onChange as Function,
-    },
+    props,
+    widget,
   }
 }

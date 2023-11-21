@@ -1,14 +1,21 @@
 import {
   toPxString,
 } from 'src/shared/utils'
+import type {
+  PropType,
+} from 'vue'
+import RenderGridItem from './RenderGridItem'
 
-export default defineComponent({
+const RenderGrid = defineComponent({
   inheritAttrs: false,
   name: 'Grid',
   props: {
     gap: {
-      type: [String, Number],
-      default: 8,
+      type: Object as PropType<Record<'x' | 'y', number>>,
+      default: () => ({
+        x: 8,
+        y: 8,
+      }),
     },
     cols: {
       type: [String, Number],
@@ -21,12 +28,15 @@ export default defineComponent({
         style={{
           width: '100%',
           display: 'grid',
-          gap: toPxString(this.gap),
+          gap: `${toPxString(this.gap.y)} ${toPxString(this.gap.x)}`,
           gridTemplateColumns: `repeat(${this.cols}, minmax(0px, 1fr))`,
         }}
       >
-        {this.$slots.default?.()}
+        <RenderGridItem />
+        <RenderGridItem />
       </div>
     )
   },
 })
+
+export default RenderGrid
