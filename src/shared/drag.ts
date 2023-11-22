@@ -6,7 +6,7 @@ import {
   setStyles,
 } from './utils'
 
-export function onDragStart(event: MouseEvent, element: VNode) {
+export function onDragStart(event: DragStartEvent, element: VNode) {
   const ghost = document.querySelector<HTMLElement>('.ghost')
   const pageX = event.originalEvent.pageX
   const pageY = event.originalEvent.pageY
