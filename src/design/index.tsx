@@ -1,8 +1,5 @@
 import Draggable from 'vuedraggable'
-import {
-  onDragStart,
-} from 'src/shared/drag'
-import Ghost from './Ghost'
+
 import ResizePanel from './ResizePanel'
 
 export default defineComponent({
