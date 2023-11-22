@@ -46,7 +46,7 @@
     "unimport": "^3.5.0",
     "unocss": "^0.57.4",
     "vue": "^3.3.8",
-    "vue-draggable-plus": "^0.2.6"
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

@@ -20,3 +20,9 @@ export function getAttrs(attrs: Record<string, any>) {
     widget,
   }
 }
+
+export function setStyles(element: HTMLElement, styles: Partial<CSSStyleDeclaration>) {
+  for (const [key, value] of Object.entries(styles)) {
+    element.style.setProperty(key, value as string)
+  }
+}
