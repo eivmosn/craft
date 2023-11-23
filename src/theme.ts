@@ -41,5 +41,18 @@ body,
     position: absolute;
 }
 
+.fc-collapse .n-collapse-item__content-inner {
+    padding-top: 0 !important;
+    border-bottom: 1px solid var(--base-border-color);
+}
+
+.fc-collapse .n-collapse-item__header-main {
+    padding: 5px 8px;
+    background-color: #eee;
+}
+
+.fc-collapse .n-collapse-item__header-main {
+    border-bottom: 1px solid var(--base-border-color);
+}
 `
 export default `${root}`

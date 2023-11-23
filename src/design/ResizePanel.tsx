@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'ResizePanel',
   setup() {
     const size = reactive({
-      left: 310,
+      left: 300,
       right: 310,
     })
     const onResize = (width: number, position: ResizePosition) => {
@@ -38,17 +38,17 @@ export default defineComponent({
   render() {
     return (
       <div class="h-full flex">
-        {this.$slots.nav?.()}
+        {this.$slots.navigation?.()}
         <div style={{ width: `${this.size.left}px` }}>
-          {this.$slots.left?.()}
+          {this.$slots.component?.()}
         </div>
         <div class="b-left b-right relative flex-1 select-none b-[var(--base-border-color)]">
-          <div class="separator -left-3px" onMousedown={evt => this.onMousedown(evt, Position.LEFT)} />
+          {/* <div class="separator -left-3px" onMousedown={evt => this.onMousedown(evt, Position.LEFT)} /> */}
           <div class="separator -right-3px" onMousedown={evt => this.onMousedown(evt, Position.RIGHT)} />
           {this.$slots.default?.()}
         </div>
         <div style={{ width: `${this.size.right}px` }}>
-          {this.$slots.right?.()}
+          {/* {this.$slots.right?.()} */}
         </div>
       </div>
     )
