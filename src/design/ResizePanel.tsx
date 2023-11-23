@@ -42,7 +42,7 @@ export default defineComponent({
         <div style={{ width: `${this.size.left}px` }}>
           {this.$slots.left?.()}
         </div>
-        <div class="relative flex-1 select-none b-left b-right b-[var(--base-border-color)]">
+        <div class="b-left b-right relative flex-1 select-none b-[var(--base-border-color)]">
           <div class="separator -left-3px" onMousedown={evt => this.onMousedown(evt, Position.LEFT)} />
           <div class="separator -right-3px" onMousedown={evt => this.onMousedown(evt, Position.RIGHT)} />
           {this.$slots.default?.()}

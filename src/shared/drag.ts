@@ -1,15 +1,16 @@
 import {
-  type VNode,
   render,
 } from 'vue'
+import Ghost from '../design/Ghost'
 import {
   setStyles,
 } from './utils'
 
-export function onDragStart(event: DragStartEvent, element: VNode) {
+export function onDragStart(event: DragStartEvent) {
+  const { originalEvent, item } = event
   const ghost = document.querySelector<HTMLElement>('.ghost')
-  const pageX = event.originalEvent.pageX
-  const pageY = event.originalEvent.pageY
+  const pageX = originalEvent.pageX
+  const pageY = originalEvent.pageY
   if (ghost) {
     /** remove clone node child */
     ghost.innerHTML = ''
@@ -19,13 +20,12 @@ export function onDragStart(event: DragStartEvent, element: VNode) {
       width: 'unset',
       border: 'unset',
       height: 'unset',
-      top: `${pageY - 10}px`,
-      left: `${pageX - 10}px`,
       background: 'unset',
+      top: `${pageY - 10}px`,
+      left: `${pageX - 12}px`,
     })
-    /** append custom node */
-    const host = document.createElement('div')
-    render(element, host)
-    ghost.appendChild(host)
+    render(h(Ghost, {
+      widget: item._underlying_vm_,
+    }), ghost)
   }
 }

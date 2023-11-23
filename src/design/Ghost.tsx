@@ -15,7 +15,11 @@ export default defineComponent({
   render() {
     return (
       <NBadge value={2}>
-        <NButton type="info" size="tiny" round>{this.widget.label}</NButton>
+        <NButton type="info" size="small">
+          组件
+          {' '}
+          {this.widget.id}
+        </NButton>
       </NBadge>
     )
   },

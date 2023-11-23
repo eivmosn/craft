@@ -16,7 +16,9 @@ interface DragOption {
 }
 
 interface DragItem {
-  _underlying_vm_: string
+  _underlying_vm_: {
+    label: string
+  }
 }
 
 interface DragGroup {

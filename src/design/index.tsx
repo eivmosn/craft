@@ -1,5 +1,7 @@
-import Draggable from 'vuedraggable'
-
+// import Draggable from 'vuedraggable'
+// import {
+//   onDragStart,
+// } from '../shared/drag'
 import ResizePanel from './ResizePanel'
 
 export default defineComponent({
@@ -10,14 +12,17 @@ export default defineComponent({
       {
         name: 'Joao',
         id: 12,
+        label: '组件01',
       },
       {
         name: 'Joao',
         id: 13,
+        label: '组件02',
       },
       {
         name: 'Joao',
         id: 1,
+        label: '组件03',
       },
     ])
 
@@ -32,19 +37,21 @@ export default defineComponent({
           nav: () => <div class="w-50px b-right b-[var(--base-border-color)]"></div>,
           left: () => (
             <div class="p-5">
-              <Draggable
+              {/* <Draggable
                 itemKey="id"
                 forceFallback
                 fallbackOnBody
                 list={this.list}
-                fallbackTolerance={5}
+                animation={120}
                 fallbackClass="ghost"
+                onStart={onDragStart}
+                fallbackTolerance={5}
                 class="grid grid-cols-1 gap-10px"
               >
                 {{
-                  item: ({ element }: { element: any }) => <div class="h-50px b">{element.id}</div>,
+                  item: ({ element }: { element: any }) => <div class="h-50px b bg-indigo">{element.id}</div>,
                 }}
-              </Draggable>
+              </Draggable> */}
             </div>
           ),
           default: () => <div></div>,
