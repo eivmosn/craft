@@ -14,7 +14,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <NBadge value={2}>
+      <NBadge value={this.widget.length}>
         <NButton type="info" size="small">
           组件
           {' '}

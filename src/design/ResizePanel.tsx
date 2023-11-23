@@ -48,7 +48,7 @@ export default defineComponent({
           {this.$slots.default?.()}
         </div>
         <div style={{ width: `${this.size.right}px` }}>
-          {/* {this.$slots.right?.()} */}
+
         </div>
       </div>
     )
