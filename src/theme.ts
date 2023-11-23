@@ -48,7 +48,7 @@ body,
 
 .fc-collapse .n-collapse-item__header-main {
     padding: 5px 8px;
-    background-color: #eee;
+    background-color: rgb(246, 248, 250);
 }
 
 .fc-collapse .n-collapse-item__header-main {
