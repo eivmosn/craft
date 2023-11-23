@@ -25,20 +25,15 @@ body,
 }
 
 .indicator {
-    position: relative;
+    border: none !important;
+    border-left: 2px solid #2080F0 !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    height: 50px !important;
 }
 
-.indicator::before {
-    content: " ";
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    width: 100%;
-    display: block;
-    background: red;
-    clear:both;
-    position: absolute;
+.indicator div {
+    display: none !important;
 }
 
 .fc-collapse .n-collapse-item__content-inner {

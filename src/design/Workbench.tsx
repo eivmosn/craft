@@ -26,7 +26,6 @@ export default defineComponent({
           group={{
             name: 'workspace',
           }}
-          class={['h-full bg-#fff fc-space', background.value]}
           list={targetList.value}
           itemKey="id"
           forceFallback
@@ -34,9 +33,26 @@ export default defineComponent({
           fallbackClass="ghost"
           onStart={onDragStart}
           ghostClass="indicator"
+          animation={80}
+          fallbackTolerance={5}
+          scrollSensitivity={150}
+          class={[
+            'h-full bg-#fff fc-space gap-4px grid-content-start',
+            'p-4px grid grid-cols-[repeat(24,minmax(0px,1fr))]',
+            background.value,
+          ]}
         >
           {{
-            item: () => <div class="b h-50px fc p-5px">2</div>,
+            item: () => (
+              <div
+                style={{
+                  gridColumn: 'span 12 / span 12',
+                }}
+                class="b h-50px fc p-5px w-full"
+              >
+                <div>123</div>
+              </div>
+            ),
           }}
         </DndContainer>
       </div>

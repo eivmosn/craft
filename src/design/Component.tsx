@@ -78,7 +78,6 @@ export default defineComponent({
                 forceFallback
                 fallbackOnBody
                 list={this.list}
-                animation={120}
                 group={{
                   name: 'workspace',
                   pull: 'clone',
@@ -89,6 +88,7 @@ export default defineComponent({
                   draging.value = true
                   onDragStart(event)
                 }}
+                scrollSensitivity={150}
                 onEnd={() => draging.value = false}
                 fallbackTolerance={5}
                 class="grid grid-cols-[repeat(auto-fill,90px)] gap-8px items-center justify-center"
