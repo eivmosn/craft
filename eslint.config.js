@@ -11,13 +11,6 @@ export default antfu(
           message: 'Use const enums instead',
         },
       ],
-      'curly': 'off',
-      'object-curly-newline': [
-        'error',
-        {
-          ImportDeclaration: 'always',
-        },
-      ],
     },
     gitignore: true,
   },

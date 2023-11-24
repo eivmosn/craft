@@ -1,9 +1,9 @@
-import {
-  toPxString,
-} from 'src/shared/utils'
 import type {
   PropType,
 } from 'vue'
+import {
+  Css,
+} from '../../dist'
 import RenderGridItem from './RenderGridItem'
 
 const RenderGrid = defineComponent({
@@ -28,7 +28,7 @@ const RenderGrid = defineComponent({
         style={{
           width: '100%',
           display: 'grid',
-          gap: `${toPxString(this.gap.y)} ${toPxString(this.gap.x)}`,
+          gap: `${Css.withUnit(this.gap.y)} ${Css.withUnit(this.gap.x)}`,
           gridTemplateColumns: `repeat(${this.cols}, minmax(0px, 1fr))`,
         }}
       >

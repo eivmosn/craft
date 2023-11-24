@@ -6,7 +6,7 @@ import {
 import DndContainer from 'vuedraggable'
 import {
   onDragStart,
-} from 'src/shared/drag'
+} from './events/DragEvent'
 import type {
   DesignState,
 } from './index'

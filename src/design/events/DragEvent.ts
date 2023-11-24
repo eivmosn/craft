@@ -1,10 +1,10 @@
 import {
   render,
 } from 'vue'
-import Ghost from '../design/Ghost'
+import Ghost from '../Ghost'
 import {
-  setStyles,
-} from './utils'
+  Css,
+} from '../../dist'
 
 export function onDragStart(event: DragStartEvent) {
   const { originalEvent, item } = event
@@ -15,7 +15,7 @@ export function onDragStart(event: DragStartEvent) {
     /** remove clone node child */
     ghost.innerHTML = ''
     /** clean up clone node css */
-    setStyles(ghost, {
+    Css.setStyle(ghost, {
       opacity: '1',
       width: 'unset',
       border: 'unset',
