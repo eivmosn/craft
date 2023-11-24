@@ -43,14 +43,17 @@ export default defineComponent({
           ]}
         >
           {{
-            item: () => (
+            item: ({ element }: any) => (
               <div
                 style={{
                   gridColumn: 'span 12 / span 12',
                 }}
                 class="b h-50px fc p-5px w-full"
               >
-                <div>123</div>
+                <div>
+                  组件
+                  {element.id}
+                </div>
               </div>
             ),
           }}

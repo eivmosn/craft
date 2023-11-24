@@ -47,13 +47,16 @@ export default defineComponent({
   setup() {
     const list = ref([
       {
-        label: 'ceec',
+        id: '12',
+        name: '组件1',
       },
       {
-        label: 'ceec',
+        id: '321',
+        name: '组件2',
       },
       {
-        label: 'ceec',
+        id: '223',
+        name: '组件3',
       },
     ])
     const design = inject<DesignState>('design', {} as DesignState)
@@ -70,7 +73,7 @@ export default defineComponent({
           <NInput />
         </div>
         {
-          Array.from({ length: 3 }).map(() => (
+          Array.from({ length: 1 }).map(() => (
             <Collapse name="containers" title="组件测试">
               <DndContainer
                 itemKey="id"
@@ -94,13 +97,14 @@ export default defineComponent({
                 class="grid grid-cols-[repeat(auto-fill,90px)] gap-8px items-center justify-center"
               >
                 {{
-                  item: () => (
+                  item: ({ element }: any) => (
                     <div class="h-80px select-none b gap-11px fc flex-col b-[var(--base-border-color)]">
                       <div class="fc text-#606266">
                         <svg width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 14v4.4a.6.6 0 0 0 .6.6H10m9-5v4.4a.6.6 0 0 1-.6.6H14m0-14h4.4a.6.6 0 0 1 .6.6V10M4 10V5.6a.6.6 0 0 1 .6-.6H10m4 14v1a2 2 0 1 1-4 0v-1m-6-9h1a2 2 0 1 1 0 4H4m15-4h1a2 2 0 1 1 0 4h-1m-5-9V4a2 2 0 1 0-4 0v1" /></svg>
                       </div>
                       <div class="px-5px max-w-90px op-80 truncate text-12px text-center">
-                        组件名称
+                        组件
+                        {element.id}
                       </div>
                     </div>
                   ),

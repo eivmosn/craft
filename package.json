@@ -20,7 +20,7 @@
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
-    "@antfu/eslint-config": "1.1.4",
+    "@antfu/eslint-config": "2.1.0",
     "@codemirror/autocomplete": "^6.11.0",
     "@codemirror/commands": "^6.3.0",
     "@codemirror/lang-javascript": "^6.2.1",
@@ -38,17 +38,17 @@
     "codemirror": "^6.0.1",
     "fuse.js": "^7.0.0",
     "lint-staged": "^15.1.0",
-    "lru-cache": "^10.0.2",
+    "lru-cache": "^10.1.0",
     "naive-ui": "^2.35.0",
     "simple-git-hooks": "^2.9.0",
-    "unimport": "^3.5.0",
-    "unocss": "^0.57.4",
+    "unimport": "^3.6.0",
+    "unocss": "^0.57.7",
     "vue": "^3.3.8",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.9.0",
-    "eslint": "^8.53.0",
+    "@types/node": "^20.9.5",
+    "eslint": "^8.54.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
     "vue-tsc": "^1.8.22"
