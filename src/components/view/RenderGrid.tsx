@@ -1,5 +1,6 @@
-import type {
-  PropType,
+import {
+  type PropType,
+  defineComponent,
 } from 'vue'
 import {
   Css,

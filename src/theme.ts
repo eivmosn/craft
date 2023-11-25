@@ -1,12 +1,14 @@
 const root = `
 :root{
-    --base-border: 4px;
-    --base-padding: 6px;
-    --base-border-color: rgb(208, 215, 222);
+   --fc-border-base: rgb(208, 215, 222);
+   --fc-background-light: #f5f8fa;
 }
 
 html.dark {
-    --base-border-color: #333;
+    --fc-background-base: rgb(30, 30, 30);
+    --fc-background-light: rgb(51, 51, 51);
+    --fc-background-content: #252526;
+    --fc-border-base: rgba(255, 255, 255, 0.09);
 }
 
 *,

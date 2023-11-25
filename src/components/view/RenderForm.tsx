@@ -1,8 +1,10 @@
 import {
   NForm,
 } from 'naive-ui'
-import type {
-  PropType,
+import {
+  type PropType,
+  computed,
+  defineComponent,
 } from 'vue'
 import RenderGrid from './RenderGrid'
 
