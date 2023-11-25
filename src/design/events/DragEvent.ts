@@ -1,14 +1,10 @@
-import {
-  render,
-} from 'vue'
-import Ghost from '../Ghost'
-import {
-  Css,
-} from '../../dist'
+import { h, render } from 'vue'
+import { Css } from '../../dist'
+import Ghost from '../internals/Ghost'
 
-export function onDragStart(event: DragStartEvent) {
+function createGhost(event: DragStartEvent, ghostClas: string) {
   const { originalEvent, item } = event
-  const ghost = document.querySelector<HTMLElement>('.ghost')
+  const ghost = document.querySelector<HTMLElement>(ghostClas)
   const pageX = originalEvent.pageX
   const pageY = originalEvent.pageY
   if (ghost) {
@@ -17,10 +13,10 @@ export function onDragStart(event: DragStartEvent) {
     /** clean up clone node css */
     Css.setStyle(ghost, {
       opacity: '1',
-      width: 'unset',
-      border: 'unset',
-      height: 'unset',
-      background: 'unset',
+      width: '',
+      border: '',
+      height: '',
+      background: '',
       top: `${pageY - 10}px`,
       left: `${pageX - 12}px`,
     })
@@ -28,4 +24,8 @@ export function onDragStart(event: DragStartEvent) {
       widget: item._underlying_vm_,
     }), ghost)
   }
+}
+
+export {
+  createGhost,
 }

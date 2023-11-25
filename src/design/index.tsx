@@ -1,49 +1,40 @@
-import Tools from './Tools'
-import Navigation from './Navigation'
-import ResizePanel from './ResizePanel'
-import Component from './Component'
-import Workbench from './Workbench'
-
-export interface DesignState {
-  draging: Ref<boolean>
-  targetList: Ref<[]>
-  background: ComputedRef<string>
-}
-
-export function useDesignState() {
-  const draging = ref(false)
-  const targetList = ref([])
-
-  const background = computed(() => {
-    return (draging.value && targetList.value.length === 0) && 'bg-blue-100'
-  })
-
-  return {
-    draging,
-    background,
-    targetList,
-  }
-}
+import { defineComponent, onMounted, ref } from 'vue'
+import Navigation from './internals/Navigation'
+import { createResizer } from './events/ResizeEvent'
 
 export default defineComponent({
   inheritAttrs: false,
+  name: 'index',
   setup() {
-    provide('design', useDesignState())
+    const keRef = ref<HTMLElement>()
+    const ketRef = ref<HTMLElement>()
+
+    onMounted(() => {
+      createResizer(ketRef.value!, {
+        position: 'left',
+        maxWidth: 450,
+        minWidth: 300,
+      })
+    })
+    return {
+      keRef,
+      ketRef,
+    }
   },
   render() {
     return (
-      <ResizePanel>
-        {{
-          navigation: () => <Navigation />,
-          component: () => <Component />,
-          default: () => (
-            <div class="h-full">
-              <Tools />
-              <Workbench />
-            </div>
-          ),
-        }}
-      </ResizePanel>
+      <div class="h-full bg-[var(--fc-background-base)] flex">
+        <Navigation />
+        <div ref="keRef" class="w-300px bg-[var(--fc-background-content)] b-right b-[var(--fc-border-base)]">
+
+        </div>
+        <div class="flex-1">
+          13
+        </div>
+        <div ref="ketRef" class="w-300px bg-[var(--fc-background-content)] b-left b-[var(--fc-border-base)]">
+          123
+        </div>
+      </div>
     )
   },
 })
