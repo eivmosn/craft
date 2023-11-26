@@ -7,6 +7,8 @@ interface ResizerOption {
   position: 'left' | 'right'
 }
 
+const resizerColor = '#007fd4'
+
 function createResizer(container: HTMLElement, option: Partial<ResizerOption>) {
   const {
     position = 'right',
@@ -19,14 +21,14 @@ function createResizer(container: HTMLElement, option: Partial<ResizerOption>) {
       top: '0',
       width: '5px',
       height: '100%',
-      opacity: '0.5',
+      opacity: '0.7',
       [position]: '-3px',
       position: 'absolute',
       transition: 'background-color .3s',
     },
   })
 
-  hover(resizer, '#0079fe')
+  hover(resizer)
 
   resizer.addEventListener('mousedown', event => onMousedown(event, container, option))
 
@@ -38,9 +40,9 @@ function createResizer(container: HTMLElement, option: Partial<ResizerOption>) {
     container.appendChild(resizer)
 }
 
-function hover(resizer: HTMLElement, background: string) {
+function hover(resizer: HTMLElement) {
   resizer.addEventListener('mouseenter', () => Css.setStyle(resizer, {
-    background,
+    background: resizerColor,
   }))
 
   resizer.addEventListener('mouseleave', () => Css.setStyle(resizer, {
@@ -50,24 +52,25 @@ function hover(resizer: HTMLElement, background: string) {
 
 function onMousedown(evt: MouseEvent, container: HTMLElement, option: Partial<ResizerOption>) {
   const { position, maxWidth, minWidth } = option
+  const resizer = evt.target as HTMLElement
 
   const onMousemove = (event: MouseEvent) => {
-    if (evt.target instanceof HTMLElement) {
-      const offsetWidth = container.offsetWidth
-      const clientRect = evt.target.getBoundingClientRect()
-      const offset = clientRect.left - offsetWidth
-      let width = position === 'right' ? event.clientX - offset : window.innerWidth - event.clientX
-      if (maxWidth && width > maxWidth)
-        width = maxWidth
-      if (minWidth && width < minWidth)
-        width = minWidth
-      container.style.width = `${width}px`
-    }
+    Css.setStyle(resizer, { background: resizerColor })
+    const offsetWidth = container.offsetWidth
+    const clientRect = resizer.getBoundingClientRect()
+    const offset = clientRect.left - offsetWidth
+    let width = position === 'right' ? event.clientX - offset : window.innerWidth - event.clientX
+    if (maxWidth && width > maxWidth)
+      width = maxWidth
+    if (minWidth && width < minWidth)
+      width = minWidth
+    container.style.width = `${width}px`
   }
 
   document.addEventListener('mousemove', onMousemove)
 
   document.addEventListener('mouseup', () => {
+    Css.setStyle(resizer, { background: '' })
     document.removeEventListener('mousemove', onMousemove)
   })
 }

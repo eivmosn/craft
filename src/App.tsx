@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import FormCook from './design'
-import { useTheme } from './composables/useTheme'
+import { useTheme } from '@/composables/useTheme'
 
 export default defineComponent({
   inheritAttrs: false,
