@@ -83,15 +83,11 @@ export default defineComponent({
       <NTooltip trigger="hover">
         {{
           trigger: () => (
-            <NButton
-              size="small"
-              quaternary
-              v-slots={{
-                icon: icons[this.icon],
-              }}
-              type={this.type}
-              class="w-28px! text-[var(--fc-icon-color)]"
-            />
+            <div class="fc">
+              <svg width="24" height="24" viewBox="0 0 32 32">
+                <path fill="currentColor" d="M26 24.005H6a2.002 2.002 0 0 1-2-2v-14a2.002 2.002 0 0 1 2-2h20a2.002 2.002 0 0 1 2 2v14a2.003 2.003 0 0 1-2 2Zm-20-16v14h20v-14Zm-4 18h28v2H2z" />
+              </svg>
+            </div>
           ),
           default: () => this.name,
         }}

@@ -6,6 +6,7 @@ import Ghost from './Ghost'
 import Navigation from './Navigation'
 import Workbench from './Workbench'
 import Settings from './Settings'
+import SourceCode from './SourceCode'
 
 export {
   Component,
@@ -16,4 +17,5 @@ export {
   Settings,
   Navigation,
   Workbench,
+  SourceCode,
 }
