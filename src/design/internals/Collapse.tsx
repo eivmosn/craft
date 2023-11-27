@@ -1,5 +1,6 @@
 import { NCollapse, NCollapseItem } from 'naive-ui'
 import { defineComponent } from 'vue'
+import DragWrapper from './DragWrapper'
 
 export default defineComponent({
   name: 'Collapse',
@@ -23,9 +24,7 @@ export default defineComponent({
           class="fc-collapse"
           displayDirective="show"
         >
-          <div class="py-8px px-6px grid grid-cols-3 gap-6px">
-            {this.$slots.default?.()}
-          </div>
+          {this.$slots.default?.()}
         </NCollapseItem>
       </NCollapse>
     )

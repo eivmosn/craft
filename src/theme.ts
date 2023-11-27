@@ -5,9 +5,11 @@ const root = `
    --fc-background-dark: #edeff3;
    --fc-background-content: #fff;
    --fc-collapse-background: rgb(246, 248, 250);
+   --fc-text-color: #1f2328;
 }
 
 html.dark {
+   --fc-text-color: #E6EDF3;
    --fc-background-dark: #000;
     --fc-background-base: rgb(30, 30, 30);
     --fc-background-light: rgb(51, 51, 51);
@@ -46,7 +48,6 @@ body,
 
 .fc-collapse .n-collapse-item__content-inner {
     padding-top: 0 !important;
-    border-bottom: 1px solid var(--fc-border-base);
 }
 
 .fc-collapse .n-collapse-item__header-main {
@@ -54,8 +55,8 @@ body,
     background-color: var(--fc-collapse-background);
 }
 
-.fc-collapse .n-collapse-item__header-main {
-    border-bottom: 1px solid var(--fc-border-base);
-}
+// .fc-collapse .n-collapse-item__header-main {
+//     border-bottom: 1px solid var(--fc-border-base);
+// }
 `
 export default `${root}`

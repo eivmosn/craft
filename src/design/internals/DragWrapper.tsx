@@ -1,16 +1,21 @@
+import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import VueDraggable from 'vuedraggable'
+import { createGhost } from '../events'
 
 export default defineComponent({
   inheritAttrs: false,
   name: 'DragWrapper',
-  setup() {
-
+  props: {
+    list: {
+      type: Array as PropType<any[]>,
+      default: () => [],
+    },
   },
   render() {
     return (
       <VueDraggable
-        list={[]}
+        list={this.list}
         itemKey="id"
         sort={false}
         forceFallback
@@ -18,9 +23,15 @@ export default defineComponent({
         fallbackClass="ghost"
         fallbackTolerance={5}
         scrollSensitivity={150}
+        class={this.$attrs.class}
+        onStart={evt => createGhost(evt, '.ghost')}
       >
         {{
-          item: () => this.$slots.default?.(),
+          item: () => (
+            <div>
+              {this.$slots.default?.()}
+            </div>
+          ),
         }}
       </VueDraggable>
     )

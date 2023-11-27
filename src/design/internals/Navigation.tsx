@@ -9,7 +9,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class="min-w-48px w-48px b-right b-[var(--fc-border-base)] bg-[var(--fc-background-light)] fc flex-col justify-start gap-20px py-20px text-[var(--fc-icon-color)]">
+      <div class="min-w-48px w-48px b-right b-[var(--fc-border-base)] bg-[var(--fc-background-content)] fc flex-col justify-start gap-20px py-20px text-[var(--fc-icon-color)]">
         <svg onClick={() => this.$emit('click', 'component')} width="24" height="24" viewBox="0 0 32 32"><path fill="currentColor" d="m28.504 8.136l-12-7a1 1 0 0 0-1.008 0l-12 7A1 1 0 0 0 3 9v14a1 1 0 0 0 .496.864l12 7a1 1 0 0 0 1.008 0l12-7A1 1 0 0 0 29 23V9a1 1 0 0 0-.496-.864ZM16 3.158L26.016 9L16 14.842L5.984 9ZM5 10.74l10 5.833V28.26L5 22.426Zm12 17.52V16.574l10-5.833v11.685Z" /></svg>
         <svg width="24" height="24" viewBox="0 0 32 32">
           <path fill="currentColor" d="M16 24a.997.997 0 0 1-.474-.12l-13-7l.948-1.76L16 21.864l12.526-6.744l.948 1.76l-13 7A.997.997 0 0 1 16 24Z" />
