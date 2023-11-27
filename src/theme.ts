@@ -4,6 +4,7 @@ const root = `
    --fc-icon-color: #656D76;
    --fc-background-dark: #edeff3;
    --fc-background-content: #fff;
+   --fc-collapse-background: rgb(246, 248, 250);
 }
 
 html.dark {
@@ -13,6 +14,7 @@ html.dark {
     --fc-background-content: #252526;
     --fc-border-base: rgba(255, 255, 255, 0.09);
     --fc-icon-color: #c5c5c5;
+    --fc-collapse-background: var(--fc-background-light);
 }
 
 *,
@@ -44,16 +46,16 @@ body,
 
 .fc-collapse .n-collapse-item__content-inner {
     padding-top: 0 !important;
-    border-bottom: 1px solid var(--base-border-color);
+    border-bottom: 1px solid var(--fc-border-base);
 }
 
 .fc-collapse .n-collapse-item__header-main {
     padding: 5px 8px;
-    background-color: rgb(246, 248, 250);
+    background-color: var(--fc-collapse-background);
 }
 
 .fc-collapse .n-collapse-item__header-main {
-    border-bottom: 1px solid var(--base-border-color);
+    border-bottom: 1px solid var(--fc-border-base);
 }
 `
 export default `${root}`

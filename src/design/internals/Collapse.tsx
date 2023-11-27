@@ -23,7 +23,7 @@ export default defineComponent({
           class="fc-collapse"
           displayDirective="show"
         >
-          <div class="py-8px">
+          <div class="py-8px px-6px grid grid-cols-3 gap-6px">
             {this.$slots.default?.()}
           </div>
         </NCollapseItem>

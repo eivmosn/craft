@@ -10,6 +10,9 @@ interface ResizerOption {
 const resizerColor = '#007fd4'
 
 function createResizer(container: HTMLElement, option: Partial<ResizerOption>) {
+  if (!container)
+    return
+
   const {
     position = 'right',
     className = 'fc-resizer',
