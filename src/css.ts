@@ -36,6 +36,10 @@ body,
     padding: 5px 8px;
 }
 
+.fc-collapse .n-base-icon {
+    color: var(--text-color-3);
+}
+
 .fc-collapse .n-collapse-item__header-main {
     border-bottom: 1px solid var(--border-color);
 }

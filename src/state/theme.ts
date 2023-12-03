@@ -1,4 +1,7 @@
 import { computed, defineComponent, h } from 'vue'
+import type {
+  GlobalThemeOverrides,
+} from 'naive-ui'
 import {
   NConfigProvider,
   NDialogProvider,
@@ -18,6 +21,15 @@ import { useDark, useToggle } from '@vueuse/core'
 export const dark = useDark()
 
 export const toggle = useToggle(dark)
+
+export const themeOverrides: GlobalThemeOverrides = {
+  common: {
+    primaryColorHover: '#1989FA',
+    primaryColorSuppl: '#1989FA',
+    primaryColor: '#1989FA',
+    primaryColorPressed: '#1989FA',
+  },
+}
 
 export const GlobalInject = defineComponent({
   name: 'GlobalInject',
@@ -46,6 +58,7 @@ export const Provider = defineComponent({
     return h(
       NConfigProvider,
       {
+        themeOverrides,
         theme: this.theme,
         inlineThemeDisabled: true,
       },
