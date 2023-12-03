@@ -11,4 +11,9 @@ export default defineConfig({
     JSX(),
     UnoCSS(),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })
