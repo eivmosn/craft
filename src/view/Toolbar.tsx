@@ -57,8 +57,26 @@ export default defineComponent({
           </MenuItem>
           <ToolItem options={[
             {
-              label: '重置',
+              label: '重置画布',
               key: 'reset',
+            },
+            {
+              label: '画布尺寸',
+              key: 'size',
+              children: [
+                {
+                  label: '桌面端',
+                  key: 'pc',
+                },
+                {
+                  label: '移动端',
+                  key: 'mobile',
+                },
+                {
+                  label: '平板电脑',
+                  key: 'pad',
+                },
+              ],
             },
           ]}
           >
