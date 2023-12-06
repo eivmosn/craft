@@ -29,7 +29,8 @@
     "naive-ui": "^2.35.0",
     "simple-git-hooks": "^2.9.0",
     "unocss": "^0.57.7",
-    "vue": "^3.3.9"
+    "vue": "^3.3.9",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.1",

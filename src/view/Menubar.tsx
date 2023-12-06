@@ -4,6 +4,7 @@ import { defineComponent } from 'vue'
 
 export const MenuItem: FunctionalComponent<{
   text: string
+  active?: boolean
   placement?: InstanceType<typeof NTooltip>['placement']
 }> = (props, { slots }) => {
   return (
@@ -15,7 +16,7 @@ export const MenuItem: FunctionalComponent<{
       {{
         default: () => props.text,
         trigger: () => (
-          <div class="fc b-rd-4px p-4px text-[var(--text-color-2)] hover:bg-[var(--hover-color)]">
+          <div class={['fc b-rd-4px p-4px text-[var(--text-color-2)] hover:bg-[var(--hover-color)]', props.active && 'bg-[var(--hover-color)]']}>
             {slots.default?.()}
           </div>
         ),

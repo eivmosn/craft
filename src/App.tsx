@@ -14,7 +14,7 @@ export default defineComponent({
       <ThemeProvider>
         <div class="flex flex-col h-full">
           <Toolbar />
-          <div class="flex-1 flex">
+          <div class="flex-1 flex h-full">
             <Menubar />
             <WidgetPanel />
             <Monitor />
