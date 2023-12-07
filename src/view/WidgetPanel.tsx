@@ -1,5 +1,7 @@
 import { defineComponent, ref } from 'vue'
 import { NInput, NScrollbar } from 'naive-ui'
+import { useDraggable } from 'vue-draggable-plus'
+
 import {
   Checkbox,
   ColorPicker,
@@ -18,12 +20,13 @@ import {
   TextArea,
   Time,
 } from '../element'
-import { Container } from '../state/dnd'
+import { createGhost } from '../state/dnd'
 
 export default defineComponent({
   inheritAttrs: false,
   name: 'WidgetPanel',
   setup() {
+    const dragRef = ref<HTMLElement | null>(null)
     const widgets = ref([
       Input,
       TextArea,
@@ -42,7 +45,27 @@ export default defineComponent({
       Link,
       ColorPicker,
     ])
+
+    useDraggable(dragRef, widgets, {
+      group: {
+        name: 'widget',
+        pull: 'clone',
+        put: false,
+      },
+      forceFallback: true,
+      fallbackOnBody: true,
+      fallbackTolerance: 5,
+      scrollSensitivity: 150,
+      sort: false,
+      onStart: (event) => {
+        const index = event.oldIndex as number
+        const widget = widgets.value[index]
+        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, widget)
+      },
+    })
+
     return {
+      dragRef,
       widgets,
     }
   },
@@ -53,16 +76,16 @@ export default defineComponent({
           <NInput clearable placeholder="Search..." class="bg-[var(--action-color)]" />
         </div>
         <NScrollbar class="flex-1 p-8px">
-          <Container widgets={this.widgets} class="grid grid-cols-2 gap-8px">
-            {{
-              default: ({ element, index }: any) => (
+          <div class="grid grid-cols-2 gap-8px" ref="dragRef">
+            {
+              this.widgets.map((element, index) => (
                 <div key={index} class="p-4px fs gap-10px px-8px b-rd-4px hover:bg-[var(--hover-color)]">
                   <div class="fc text-blue-5" v-html={element.icon} />
                   <div class="text-[var(--text-color-2)]">{element.label['zh-CN']}</div>
                 </div>
-              ),
-            }}
-          </Container>
+              ))
+            }
+          </div>
         </NScrollbar>
       </div>
     )
