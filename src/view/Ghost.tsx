@@ -2,7 +2,7 @@ import {
   NBadge,
   NButton,
 } from 'naive-ui'
-import { defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -13,8 +13,11 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  setup() {
+  setup(props) {
     const badgeRef = ref<InstanceType<typeof NBadge>>()
+
+    const ghostName = computed(() => props.widget.label['zh-CN'])
+    const multipleSelect = computed(() => props.widget.length)
 
     const removeParentStyle = () => {
       if (badgeRef.value && badgeRef.value.$el) {
@@ -24,17 +27,19 @@ export default defineComponent({
       }
     }
 
-    onMounted(() => removeParentStyle())
+    onMounted(removeParentStyle)
 
     return {
       badgeRef,
+      ghostName,
+      multipleSelect,
     }
   },
   render() {
     return (
-      <NBadge ref="badgeRef" value={this.widget.length}>
+      <NBadge ref="badgeRef" value={this.multipleSelect}>
         <NButton type="info" size="small">
-          {this.widget.label['zh-CN']}
+          {this.ghostName}
         </NButton>
       </NBadge>
     )

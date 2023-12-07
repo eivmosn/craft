@@ -61,7 +61,9 @@ export default defineComponent({
       onStart: (event) => {
         const index = event.oldIndex as number
         const widget = widgets.value[index]
-        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, widget)
+        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, {
+          widget,
+        })
       },
     })
 

@@ -14,6 +14,7 @@ export default defineComponent({
       group: {
         name: 'widget',
       },
+      ghostClass: 'ghost',
       forceFallback: true,
       fallbackOnBody: true,
       fallbackTolerance: 5,
@@ -21,7 +22,11 @@ export default defineComponent({
       onStart: (event) => {
         const index = event.oldIndex as number
         const widget = targetList.value[index]
-        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, widget)
+        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, {
+          widget,
+          offsetTop: 10,
+          offsetLeft: 10,
+        })
       },
     })
 

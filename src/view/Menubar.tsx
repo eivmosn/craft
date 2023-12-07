@@ -28,9 +28,6 @@ export const MenuItem: FunctionalComponent<{
 export default defineComponent({
   inheritAttrs: false,
   name: 'Menubar',
-  setup() {
-
-  },
   render() {
     return (
       <div class="fc flex-col justify-start py-10px gap-10px w-48px b-right b-[var(--border-color)] bg-[var(--card-color)]">

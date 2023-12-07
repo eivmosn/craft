@@ -2,7 +2,12 @@ import { h, render } from 'vue'
 import Ghost from '../view/Ghost'
 import { Css } from './dist'
 
-export function createGhost(event: MouseEvent, widget: object) {
+export function createGhost(event: MouseEvent, options: {
+  widget: object
+  offsetTop?: number
+  offsetLeft?: number
+}) {
+  const { widget, offsetTop = 18, offsetLeft = 20 } = options
   const ghost = document.querySelector<HTMLElement>('.sortable-fallback')
   const pageX = event.pageX
   const pageY = event.pageY
@@ -11,8 +16,8 @@ export function createGhost(event: MouseEvent, widget: object) {
     ghost.innerHTML = ''
     /** clean up clone node css */
     Css.setStyle(ghost, {
-      top: `${pageY - 18}px`,
-      left: `${pageX - 20}px`,
+      top: `${pageY - offsetTop}px`,
+      left: `${pageX - offsetLeft}px`,
     })
     render(h(Ghost, {
       widget,
