@@ -27,6 +27,7 @@ export default defineComponent({
   name: 'WidgetPanel',
   setup() {
     const dragRef = ref<HTMLElement | null>(null)
+
     const widgets = ref([
       Input,
       TextArea,
@@ -52,11 +53,11 @@ export default defineComponent({
         pull: 'clone',
         put: false,
       },
+      sort: false,
       forceFallback: true,
       fallbackOnBody: true,
       fallbackTolerance: 5,
       scrollSensitivity: 150,
-      sort: false,
       onStart: (event) => {
         const index = event.oldIndex as number
         const widget = widgets.value[index]

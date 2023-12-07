@@ -11,11 +11,6 @@ export function createGhost(event: MouseEvent, widget: object) {
     ghost.innerHTML = ''
     /** clean up clone node css */
     Css.setStyle(ghost, {
-      opacity: '1',
-      width: '',
-      border: '',
-      height: '',
-      background: '',
       top: `${pageY - 18}px`,
       left: `${pageX - 20}px`,
     })
