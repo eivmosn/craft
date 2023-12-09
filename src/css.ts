@@ -26,17 +26,18 @@ body,
 
 .ghost-indicator {
     position: relative;
-    box-sizing: border-box;
+    height: 55px;
+    max-height: 55px;
+    min-height: 55px;
+    grid-column: span 12 / span 12;
 }
 
 .ghost-indicator::before {
     content: '';
     top: 0px;
     width: 2px;
-    left: -4px;
-    height: 53px;
-    max-height: 53px;
-    min-height: 53px;
+    left: -1px;
+    height: 100%;
     position: absolute;
     background-color: red;
     box-sizing: border-box;

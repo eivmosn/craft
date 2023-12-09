@@ -73,7 +73,7 @@ export default defineComponent({
   render() {
     return (
       <div
-        class="b b-[var(--border-color)] min-h-55px relative"
+        class="outline outline-1px outline-[var(--border-color)] min-h-55px relative"
         style="grid-column: span 12 / span 12"
       >
         <Selector />

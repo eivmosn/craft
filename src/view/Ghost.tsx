@@ -23,7 +23,7 @@ export default defineComponent({
       if (badgeRef.value && badgeRef.value.$el) {
         const element = badgeRef.value.$el.parentElement as HTMLElement
         element.style.opacity = '1'
-        element.style.border = 'none'
+        element.style.outline = 'none'
       }
     }
 
