@@ -13,7 +13,9 @@ export function createGhost(event: MouseEvent, options: {
   const pageY = event.pageY
   if (ghost) {
     /** remove clone node child */
-    ghost.innerHTML = ''
+    while (ghost.hasChildNodes())
+      ghost.firstChild && ghost.removeChild(ghost.firstChild)
+
     /** clean up clone node css */
     Css.setStyle(ghost, {
       top: `${pageY - offsetTop}px`,

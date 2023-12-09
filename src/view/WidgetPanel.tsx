@@ -82,9 +82,11 @@ export default defineComponent({
           <div class="grid grid-cols-2 gap-8px" ref="dragRef">
             {
               this.widgets.map((element, index) => (
-                <div key={index} class="p-4px fs gap-10px px-8px b-rd-4px hover:bg-[var(--hover-color)]">
-                  <div class="fc text-blue-5" v-html={element.icon} />
-                  <div class="text-[var(--text-color-2)]">{element.label['zh-CN']}</div>
+                <div key={index}>
+                  <div class="widget-ghost-item b-rd-4px hover:bg-[var(--hover-color)] p-4px fs gap-10px px-8px">
+                    <div class="fc text-blue-5" v-html={element.icon} />
+                    <div class="text-[var(--text-color-2)]">{element.label['zh-CN']}</div>
+                  </div>
                 </div>
               ))
             }

@@ -1,6 +1,7 @@
 import { NScrollbar } from 'naive-ui'
 import { defineComponent, ref } from 'vue'
 import { useDraggable } from 'vue-draggable-plus'
+import Controller from './Controller'
 import { createGhost } from '@/state/dnd'
 
 export default defineComponent({
@@ -14,7 +15,6 @@ export default defineComponent({
       group: {
         name: 'widget',
       },
-      ghostClass: 'ghost',
       forceFallback: true,
       fallbackOnBody: true,
       fallbackTolerance: 5,
@@ -28,6 +28,7 @@ export default defineComponent({
           offsetLeft: 10,
         })
       },
+      ghostClass: 'ghost-indicator',
     })
 
     return {
@@ -37,28 +38,31 @@ export default defineComponent({
   },
   render() {
     return (
-      <NScrollbar class="flex-1 bg-[var(--fc-monitor)]">
-        <div class="p-8px">
+      <div class="flex-1 bg-[var(--fc-monitor)] p-6px">
+        <NScrollbar class="h-full bg-[var(--card-color)]">
           <div
             ref="targetRef"
             class={[
-              'p-4px bg-[var(--card-color)] min-h-[calc(100vh-64px)]',
+              'min-h-[calc(100vh-60px)] p-4px',
               'grid grid-cols-[repeat(24,minmax(0px,1fr))] grid-content-start gap-4px',
             ]}
           >
             {
-              this.targetList.map((item: any) => (
-                <div
-                  class="b min-h-55px"
-                  style="grid-column: span 12 / span 12"
-                >
-                  {item.type}
-                </div>
+              this.targetList.map(() => (
+                <Controller>
+                  123
+                </Controller>
+                // <div
+                //   class="b min-h-55px"
+                //   style="grid-column: span 12 / span 12"
+                // >
+                //   {item.type}
+                // </div>
               ))
             }
           </div>
-        </div>
-      </NScrollbar>
+        </NScrollbar>
+      </div>
     )
   },
 })
