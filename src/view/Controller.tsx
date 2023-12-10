@@ -1,5 +1,5 @@
 import { NButton, NButtonGroup, NTooltip } from 'naive-ui'
-import type { FunctionalComponent } from 'vue'
+import type { FunctionalComponent, PropType } from 'vue'
 import { defineComponent } from 'vue'
 
 const Buttons = [
@@ -41,25 +41,36 @@ const Buttons = [
   },
 ]
 
-const Selector: FunctionalComponent = () => {
+const Selector: FunctionalComponent<{
+  clear?: boolean
+  onSelect?: (value: string) => void
+}> = (props) => {
+  const { clear = false } = props
   return (
     <NButtonGroup size="tiny" class="b-rd-0! absolute bottom-0 right-0">
-      {
-        Buttons.map((button) => {
-          return (
-            <NTooltip trigger="hover">
+      {Buttons.map(button =>
+        !((button.value === 'clear' && !clear))
+          ? (
+            <NTooltip trigger="hover" key={button.value}>
               {{
                 trigger: () => (
-                  <NButton type="primary" class="b-rd-0! w-22px!">
+                  <NButton
+                    type="primary"
+                    class="b-rd-0! w-22px!"
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      props.onSelect?.(button.value)
+                    }}
+                  >
                     {{ icon: button.icon }}
                   </NButton>
                 ),
                 default: () => button.label,
               }}
             </NTooltip>
-          )
-        })
-      }
+            )
+          : null,
+      )}
     </NButtonGroup>
   )
 }
@@ -67,16 +78,40 @@ const Selector: FunctionalComponent = () => {
 export default defineComponent({
   inheritAttrs: false,
   name: 'Controller',
-  setup() {
-
+  props: {
+    active: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
+  emits: [
+    'click',
+    'select',
+  ],
   render() {
     return (
       <div
-        class="outline outline-1px outline-[var(--border-color)] min-h-55px relative"
-        style="grid-column: span 12 / span 12"
+        style={{
+          gridColumn: 'span 12 / span 12',
+        }}
+        class={[
+          this.active && 'outline',
+          !this.active && 'hover:(outline-dashed)',
+          'min-h-40px relative fc px-5px outline-1px outline-[var(--primary-color)]',
+        ]}
+        onClick={(event) => {
+          event.stopPropagation()
+          this.$emit('click')
+        }}
       >
-        <Selector />
+        {this.$slots.default?.()}
+        <div class="w-full h-full absolute inset-0">
+          {this.active && (
+            <Selector
+              onSelect={value => this.$emit('select', value)}
+            />
+          )}
+        </div>
       </div>
     )
   },

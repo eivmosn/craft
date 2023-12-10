@@ -20,6 +20,8 @@ export function createGhost(event: MouseEvent, options: {
     Css.setStyle(ghost, {
       top: `${pageY - offsetTop}px`,
       left: `${pageX - offsetLeft}px`,
+      justifyContent: 'unset',
+      alignItems: 'unset',
     })
     render(h(Ghost, {
       widget,

@@ -16,4 +16,11 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  optimizeDeps: {
+    include: [
+      'naive-ui',
+      '@vueuse/core',
+      'vue-draggable-plus',
+    ],
+  },
 })

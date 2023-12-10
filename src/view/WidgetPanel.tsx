@@ -1,6 +1,8 @@
 import { defineComponent, ref } from 'vue'
 import { NInput, NScrollbar } from 'naive-ui'
 import { useDraggable } from 'vue-draggable-plus'
+import { cloneDeep } from 'lodash-es'
+import dayjs from 'dayjs'
 
 import {
   Checkbox,
@@ -64,6 +66,11 @@ export default defineComponent({
         createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, {
           widget,
         })
+      },
+      clone: (element) => {
+        const cloneElement = cloneDeep(element) as any
+        cloneElement.id = dayjs().valueOf()
+        return cloneElement
       },
     })
 
