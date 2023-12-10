@@ -23,9 +23,7 @@ export const ToolItem: FunctionalComponent<{
 export default defineComponent({
   inheritAttrs: false,
   name: 'Toolbar',
-  setup() {
-
-  },
+  emits: ['changeSize'],
   render() {
     return (
       <div class="fs gap-10px px-8px min-h-48px h-48px b-bottom b-[var(--border-color)] bg-[var(--card-color)]">
@@ -42,16 +40,16 @@ export default defineComponent({
           </div>
         </div>
         <div class="flex-1 fs gap-10px">
-          <MenuItem active text="客户端" placement="bottom">
+          <MenuItem onClick={() => this.$emit('changeSize', 'laptop')} active text="客户端" placement="bottom">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path fill="currentColor" d="M26 24.005H6a2.002 2.002 0 0 1-2-2v-14a2.002 2.002 0 0 1 2-2h20a2.002 2.002 0 0 1 2 2v14a2.003 2.003 0 0 1-2 2Zm-20-16v14h20v-14Zm-4 18h28v2H2z" /></svg>
           </MenuItem>
-          <MenuItem text="平板" placement="bottom">
+          <MenuItem onClick={() => this.$emit('changeSize', 'tablet')} text="平板" placement="bottom">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32">
               <path fill="currentColor" d="M24 13h2v6h-2z" />
               <path fill="currentColor" d="M30 7v18a2.002 2.002 0 0 1-2 2H4a2.002 2.002 0 0 1-2-2V7a2.002 2.002 0 0 1 2-2h24a2.003 2.003 0 0 1 2 2ZM4 25h24V7H4Z" />
             </svg>
           </MenuItem>
-          <MenuItem text="移动端" placement="bottom">
+          <MenuItem onClick={() => this.$emit('changeSize', 'mobile')} text="移动端" placement="bottom">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path fill="currentColor" d="M22 4H10a2.002 2.002 0 0 0-2 2v22a2.002 2.002 0 0 0 2 2h12a2.003 2.003 0 0 0 2-2V6a2.002 2.002 0 0 0-2-2Zm0 2v2H10V6ZM10 28V10h12v18Z" /></svg>
           </MenuItem>
         </div>

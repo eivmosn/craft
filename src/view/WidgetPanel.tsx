@@ -81,7 +81,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class="w-263px h-full select-none b-right b-[var(--border-color)] bg-[var(--card-color)] flex flex-col">
+      <div class="w-263px min-w-263px h-full select-none b-right b-[var(--border-color)] bg-[var(--card-color)] flex flex-col">
         <div class="p-8px">
           <NInput clearable placeholder="Search..." class="bg-[var(--action-color)]" />
         </div>

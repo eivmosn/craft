@@ -6,6 +6,7 @@ export const MenuItem: FunctionalComponent<{
   text: string
   active?: boolean
   placement?: InstanceType<typeof NTooltip>['placement']
+  onClick?: () => void
 }> = (props, { slots }) => {
   return (
     <NTooltip
@@ -16,7 +17,7 @@ export const MenuItem: FunctionalComponent<{
       {{
         default: () => props.text,
         trigger: () => (
-          <div class={['fc b-rd-4px p-4px text-[var(--text-color-2)] hover:bg-[var(--hover-color)]', props.active && 'bg-[var(--hover-color)]']}>
+          <div onClick={props.onClick} class={['fc b-rd-4px p-4px text-[var(--text-color-2)] hover:bg-[var(--hover-color)]', props.active && 'bg-[var(--hover-color)]']}>
             {slots.default?.()}
           </div>
         ),
@@ -30,7 +31,7 @@ export default defineComponent({
   name: 'Menubar',
   render() {
     return (
-      <div class="fc flex-col justify-start py-10px gap-10px w-48px b-right b-[var(--border-color)] bg-[var(--card-color)]">
+      <div class="fc flex-col justify-start py-10px gap-10px w-48px min-w-48px b-right b-[var(--border-color)] bg-[var(--card-color)]">
         <MenuItem text="组件">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32">
             <path fill="currentColor" d="M20 21h-8a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2Zm-8-4v2h8v-2Z" />

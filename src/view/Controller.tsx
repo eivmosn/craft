@@ -96,7 +96,7 @@ export default defineComponent({
         }}
         class={[
           this.active && 'outline',
-          !this.active && 'hover:(outline-dashed)',
+          !this.active && 'hover:(bg-[var(--hover-color)])',
           'min-h-40px relative fc px-5px outline-1px outline-[var(--primary-color)]',
         ]}
         onClick={(event) => {
