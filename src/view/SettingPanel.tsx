@@ -20,7 +20,6 @@ export default defineComponent({
   render() {
     return (
       <div ref="settingRef" class="w-300px b-left b-[var(--border-color)] bg-[var(--card-color)]">
-
       </div>
     )
   },

@@ -29,7 +29,7 @@ body,
     height: 40px;
     max-height: 40px;
     min-height: 40px;
-    grid-column: span 12 / span 12;
+    // grid-column: span 12 / span 12;
 }
 
 .ghost-indicator::before {

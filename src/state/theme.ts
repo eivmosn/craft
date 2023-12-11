@@ -1,4 +1,4 @@
-import { computed, defineComponent, h } from 'vue'
+import { computed, defineComponent, h, renderSlot } from 'vue'
 import type {
   GlobalThemeOverrides,
 } from 'naive-ui'
@@ -40,7 +40,8 @@ export const GlobalInject = defineComponent({
     window.$notification = useNotification()
   },
   render() {
-    return this.$slots.default?.()
+    const { $slots } = this
+    return renderSlot($slots, 'default')
   },
 })
 

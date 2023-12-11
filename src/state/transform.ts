@@ -28,6 +28,10 @@ export const isSelectType = makeMap(
     `Select,Date,Quarter,Year,Month,Time,Datetime`,
 )
 
+export const isContainerType = makeMap(
+  `Grid,Card`,
+)
+
 export function placeholder(widget: FormCookWidget): string {
   const label = widget.label['zh-CN']
 

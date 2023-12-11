@@ -16,7 +16,7 @@ export default defineComponent({
   setup(props) {
     const badgeRef = ref<InstanceType<typeof NBadge>>()
 
-    const ghostName = computed(() => props.widget.label['zh-CN'])
+    const ghostName = computed(() => props.widget.label)
     const multipleSelect = computed(() => props.widget.length)
 
     const removeParentStyle = () => {

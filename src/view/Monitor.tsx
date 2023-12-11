@@ -1,10 +1,13 @@
 import { NFormItem, NInput, NScrollbar } from 'naive-ui'
 import type { PropType } from 'vue'
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, renderList } from 'vue'
 import { useDraggable } from 'vue-draggable-plus'
-import type { FormCookWidget } from '../state/transform'
 import Controller from './Controller'
+import Grid from './components/Grid'
+import { type FormCookWidget, isContainerType } from '@/state/transform'
 import { createGhost } from '@/state/dnd'
+import LaptopInput from '@/components/input/Laptop'
+import LaptopSelect from '@/components/select/Laptop'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -29,28 +32,28 @@ export default defineComponent({
       return platform[props.size]
     })
 
-    useDraggable(targetRef, targetList, {
-      group: {
-        name: 'widget',
-      },
-      forceFallback: true,
-      fallbackOnBody: true,
-      fallbackTolerance: 5,
-      scrollSensitivity: 150,
-      onStart: (event) => {
-        const index = event.oldIndex as number
-        const widget = targetList.value[index]
-        createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, {
-          widget,
-        })
-      },
-      ghostClass: 'ghost-indicator',
-      onAdd: (event) => {
-        const index = event.newIndex as number
-        const widget = targetList.value[index]
-        activeId.value = widget.id
-      },
-    })
+    // useDraggable(targetRef, targetList, {
+    //   group: {
+    //     name: 'widget',
+    //   },
+    //   forceFallback: true,
+    //   fallbackOnBody: true,
+    //   fallbackTolerance: 5,
+    //   scrollSensitivity: 150,
+    //   onStart: (event) => {
+    //     const index = event.oldIndex as number
+    //     const widget = targetList.value[index]
+    //     createGhost((event as unknown as { originalEvent: MouseEvent }).originalEvent, {
+    //       widget,
+    //     })
+    //   },
+    //   ghostClass: 'ghost-indicator',
+    //   onAdd: (event) => {
+    //     const index = event.newIndex as number
+    //     const widget = targetList.value[index]
+    //     activeId.value = widget.id
+    //   },
+    // })
 
     return {
       width,
@@ -77,31 +80,20 @@ export default defineComponent({
               ref="targetRef"
               class={[
                 'min-h-[calc(100vh-60px)] p-4px ma bg-[var(--card-color)]',
-                'grid grid-cols-[repeat(24,minmax(0px,1fr))] grid-content-start gap-4px',
+                'grid grid-cols-1 gap-4px grid-content-start',
+                // 'grid grid-cols-[repeat(24,minmax(0px,1fr))] grid-content-start gap-4px',
               ]}
               style={{
                 width: this.width,
               }}
             >
               {
-                this.targetList.map(widget => (
-                  <Controller
-                    key={widget.id}
-                    active={this.activeId === widget.id}
-                    onClick={() => this.activeId = widget.id}
-                  >
-                    <NFormItem
-                      class="w-full"
-                      labelWidth={80}
-                      showFeedback={false}
-                      labelPlacement="left"
-                      label={widget.label['zh-CN']}
-                    >
-                      <NInput />
-                    </NFormItem>
-                  </Controller>
+                this.targetList.map(() => (
+                  <Grid />
                 ))
               }
+              <LaptopInput clearable />
+              <LaptopSelect clearable />
             </div>
           </NScrollbar>
         </div>

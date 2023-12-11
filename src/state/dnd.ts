@@ -1,6 +1,8 @@
-import { h, render } from 'vue'
+import { h, ref, render } from 'vue'
+import { createGlobalState } from '@vueuse/core'
 import Ghost from '../view/Ghost'
 import { Css } from './dist'
+import type { FormCookWidget } from './transform'
 
 export function createGhost(event: MouseEvent, options: {
   widget: object

@@ -3,51 +3,15 @@ import { NInput, NScrollbar } from 'naive-ui'
 import { useDraggable } from 'vue-draggable-plus'
 import { cloneDeep } from 'lodash-es'
 import dayjs from 'dayjs'
-
-import {
-  Checkbox,
-  ColorPicker,
-  Date,
-  HTML,
-  IconPicker,
-  Image,
-  Input,
-  InputNumber,
-  Link,
-  Password,
-  QRCode,
-  Radio,
-  Rate,
-  Select,
-  TextArea,
-  Time,
-} from '../element'
-import { createGhost } from '../state/dnd'
+import { createGhost } from '@/state/dnd'
+import widget from '@/widget'
 
 export default defineComponent({
   inheritAttrs: false,
   name: 'WidgetPanel',
   setup() {
     const dragRef = ref<HTMLElement | null>(null)
-
-    const widgets = ref([
-      Input,
-      TextArea,
-      InputNumber,
-      Password,
-      Select,
-      Date,
-      Time,
-      Rate,
-      Image,
-      IconPicker,
-      Checkbox,
-      Radio,
-      QRCode,
-      HTML,
-      Link,
-      ColorPicker,
-    ])
+    const widgets = ref(widget)
 
     useDraggable(dragRef, widgets, {
       group: {
@@ -91,8 +55,8 @@ export default defineComponent({
               this.widgets.map((element, index) => (
                 <div key={index}>
                   <div class="widget-ghost-item b-rd-4px hover:bg-[var(--hover-color)] p-4px fs gap-10px px-8px">
-                    <div class="fc text-blue-5" v-html={element.icon} />
-                    <div class="text-[var(--text-color-2)]">{element.label['zh-CN']}</div>
+                    <div class="fc text-[var(--primary-color)]" v-html={element.icon} />
+                    <div class="text-[var(--text-color-2)] text-truncate">{element.label}</div>
                   </div>
                 </div>
               ))

@@ -1,4 +1,7 @@
-import { defineComponent, ref } from 'vue'
+import {
+  defineComponent,
+  ref,
+} from 'vue'
 import Menubar from '@/view/Menubar'
 import Monitor from '@/view/Monitor'
 import Toolbar from '@/view/Toolbar'
