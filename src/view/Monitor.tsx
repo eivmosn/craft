@@ -1,13 +1,14 @@
 import { NFormItem, NInput, NScrollbar } from 'naive-ui'
 import type { PropType } from 'vue'
-import { computed, defineComponent, ref, renderList } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useDraggable } from 'vue-draggable-plus'
 import Controller from './Controller'
 import Grid from './components/Grid'
 import { type FormCookWidget, isContainerType } from '@/state/transform'
 import { createGhost } from '@/state/dnd'
 import LaptopInput from '@/components/input/Laptop'
-import LaptopSelect from '@/components/select/Laptop'
+import BaseTable from '@/components/table/base'
+import EventGraph from '@/view/EventGraph'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -75,9 +76,9 @@ export default defineComponent({
           class="bg-[var(--card-color)] ma h-full"
         >
           {/* scrollbar */}
-          <NScrollbar>
+          {/* <NScrollbar>
             <div
-              ref="targetRef"
+              // ref="targetRef"
               class={[
                 'min-h-[calc(100vh-60px)] p-4px ma bg-[var(--card-color)]',
                 'grid grid-cols-1 gap-4px grid-content-start',
@@ -92,10 +93,11 @@ export default defineComponent({
                   <Grid />
                 ))
               }
-              <LaptopInput clearable />
-              <LaptopSelect clearable />
+              <LaptopInput />
+              <BaseTable />
             </div>
-          </NScrollbar>
+          </NScrollbar> */}
+          <EventGraph />
         </div>
       </div>
     )

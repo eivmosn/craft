@@ -1,16 +1,17 @@
-import { NInput, inputProps } from 'naive-ui'
+import { NFormItem, NInput, inputProps } from 'naive-ui'
+import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import { type CustomSlots, excludeProps } from '@/utils'
 
 export const extendsInputProps = {
   ...inputProps,
   suffix: {
-    type: String,
-    default: '￥',
+    type: String as PropType<string>,
+    default: '',
   },
   prefix: {
-    type: String,
-    default: '&',
+    type: String as PropType<string>,
+    default: '',
   },
 }
 
@@ -28,10 +29,17 @@ export default defineComponent({
       slots.prefix = () => this.$props.prefix
 
     return (
-      <NInput
-        {...props}
-        v-slots={slots}
-      />
+      <NFormItem
+        label="输入框"
+        labelPlacement="left"
+        showFeedback={false}
+      >
+        <NInput
+          {...props}
+          clearable
+          v-slots={slots}
+        />
+      </NFormItem>
     )
   },
 })
