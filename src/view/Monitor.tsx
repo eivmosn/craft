@@ -10,6 +10,17 @@ import LaptopInput from '@/components/input/Laptop'
 import BaseTable from '@/components/table/base'
 import EventGraph from '@/view/EventGraph'
 
+function extractExpression(input: string): string | null {
+  // 定义匹配 {{ ... }} 格式的正则表达式
+  const regex = /\{\{\s*(.*?)\s*\}\}/
+
+  // 使用正则表达式进行匹配
+  const match = input.match(regex)
+
+  // 如果匹配成功，返回捕获组的内容，否则返回 null
+  return match ? match[1] : null
+}
+
 export default defineComponent({
   inheritAttrs: false,
   name: 'Monitor',
@@ -56,6 +67,9 @@ export default defineComponent({
     //   },
     // })
 
+    const exp = extractExpression('{{ formData.name === 1 ? "exp.ma" : false }}')
+    console.log(exp)
+
     return {
       width,
       activeId,
@@ -97,7 +111,7 @@ export default defineComponent({
               <BaseTable />
             </div>
           </NScrollbar> */}
-          <EventGraph />
+          {/* <EventGraph /> */}
         </div>
       </div>
     )
