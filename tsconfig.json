@@ -8,10 +8,6 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": [
-      "vite/client",
-      "naive-ui/volar"
-    ],
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,

@@ -1,0 +1,14 @@
+{
+  "name": "@form-cook/view",
+  "type": "module",
+  "author": "eivmosn",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "dev": "vite dev"
+  },
+  "dependencies": {
+    "@form-cook/components": "workspace:^",
+    "@form-cook/theme": "workspace:^"
+  }
+}
