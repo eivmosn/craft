@@ -1,7 +1,7 @@
 {
   "name": "@form-cook/components",
-  "keywords": [],
+  "type": "module",
   "author": "eivmosn",
   "license": "ISC",
-  "type": "module"
+  "keywords": []
 }
