@@ -1,2 +1,5 @@
+export * from './src/Date'
 export * from './src/Input'
+export * from './src/Color'
+export * from './src/Select'
 export * from './src/InputNumber'
