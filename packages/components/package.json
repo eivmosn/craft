@@ -3,5 +3,8 @@
   "type": "module",
   "author": "eivmosn",
   "license": "ISC",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "@form-cook/state": "workspace:^"
+  }
 }

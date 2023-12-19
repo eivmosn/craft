@@ -8,6 +8,10 @@ export const Input = defineComponent({
 
   },
   render() {
-    return <NInput clearable />
+    return (
+      <NInput
+        clearable
+      />
+    )
   },
 })

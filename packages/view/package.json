@@ -5,7 +5,7 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "dev": "vite dev"
+    "dev": "vite dev --host --open"
   },
   "dependencies": {
     "@form-cook/components": "workspace:^",
