@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import type { JSX } from 'vue/jsx-runtime'
 
 export type CustomSlots<S extends string> = {
   [key in S]?: () => JSX.Element | number | null | string

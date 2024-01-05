@@ -9,7 +9,14 @@ export default defineComponent({
   },
   render() {
     return (
-      <div style={{ padding: '2rem', display: 'grid', gridTemplateColumns: '1', gap: '12px' }}>
+      <div
+        style={{
+          padding: '2rem',
+          display: 'grid',
+          gridTemplateColumns: '1',
+          gap: '12px',
+        }}
+      >
         <Input />
         <Date />
         <Color />
