@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { Color, Date, Input, InputNumber, Select } from '@form-cook/components'
+import { Input } from '@form-cook/components'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -8,6 +8,11 @@ export default defineComponent({
 
   },
   render() {
+    const props = {
+      name: 'hello',
+      age: 123,
+    }
+
     return (
       <div
         style={{
@@ -17,11 +22,8 @@ export default defineComponent({
           gap: '12px',
         }}
       >
-        <Input />
-        <Date />
-        <Color />
-        <Select />
-        <InputNumber />
+        <Input {...props} />
+        <Input {...props} />
       </div>
     )
   },
