@@ -10,6 +10,7 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@form-cook/components": "workspace:^",
     "@form-cook/editor": "workspace:^"
   }
 }
