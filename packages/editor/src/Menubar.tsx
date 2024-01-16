@@ -1,12 +1,9 @@
 import { defineComponent } from 'vue'
-import { Editor } from '@form-cook/editor'
 
 export default defineComponent({
-  name: 'App',
+  name: 'Menubar',
   inheritAttrs: false,
   render() {
-    return (
-      <Editor />
-    )
+    return <div>Menubar</div>
   },
 })

@@ -1,13 +1,12 @@
 import { defineComponent } from 'vue'
-import Toolbar from './Toolbar'
 
 export default defineComponent({
-  name: 'Editor',
+  name: 'Toolbar',
   inheritAttrs: false,
   render() {
     return (
-      <div class="fc-editor">
-        <Toolbar />
+      <div class="fc-toolbar">
+
       </div>
     )
   },
