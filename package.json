@@ -6,8 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "dev": "pnpm -F @form-cook/example dev",
-    "test": "node scripts/build.mjs"
+    "dev": "pnpm -F @form-cook/example dev"
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.6.2",

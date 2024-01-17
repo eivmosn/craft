@@ -6,7 +6,7 @@ export default defineComponent({
   inheritAttrs: false,
   render() {
     return (
-      <div class="fc-editor">
+      <div class="h-full bg-red">
         <Toolbar />
       </div>
     )
