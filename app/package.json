@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "type": "module",
+  "author": "eivmosn",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "dev": "vite"
+  }
+}

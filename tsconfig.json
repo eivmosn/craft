@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "baseUrl": ".",
+    "lib": ["esnext", "dom"],
     "module": "ESNext",
     "moduleResolution": "Node",
-    "resolveJsonModule": true,
+    "types": [
+      "vite/client"
+    ],
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

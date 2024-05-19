@@ -1,6 +1,5 @@
 {
-  "name": "@form-cook/editor",
-  "type": "module",
+  "name": "@craft/core",
   "version": "1.0.0",
   "description": "",
   "author": "",
