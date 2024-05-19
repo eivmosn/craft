@@ -5,36 +5,27 @@
   "keywords": [],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "simple-git-hooks",
-    "build": "node scripts/build.mjs",
-    "create:widget": "node scripts/cli/index.mjs",
-    "dev": "pnpm -C app dev"
+    "postinstall": "simple-git-hooks"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^2.17.0",
-    "@craft/components": "workspace:*",
-    "@craft/core": "workspace:*",
-    "@types/node": "^20.12.11",
+    "@antfu/eslint-config": "^2.18.1",
+    "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/shared": "^3.4.27",
-    "esbuild": "^0.21.1",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
     "minimist": "^1.2.8",
     "naive-ui": "^2.38.2",
-    "picocolors": "^1.0.0",
+    "picocolors": "^1.0.1",
     "prompts": "^2.4.2",
     "simple-git-hooks": "^2.11.1",
-    "terser": "^5.31.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vue": "^3.4.27",
-    "vue-tsc": "^2.0.17"
+    "vue-tsc": "^2.0.19"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "commit-msg": "node scripts/commit.mjs"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
